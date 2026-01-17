@@ -81,13 +81,6 @@ a {
 .hero {
   padding: 40px 0 48px;
   /* border-bottom: 1px solid rgba(255, 255, 255, 0.12); */
-  background: radial-gradient(
-      circle at top,
-      rgba(10, 185, 255, 0.3),
-      rgba(10, 185, 255, 0.1) 50%,
-      transparent 80%
-    ),
-    var(--black);
 }
 
 .hero-inner {

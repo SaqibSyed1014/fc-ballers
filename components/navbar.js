@@ -14,7 +14,7 @@ navElement.innerHTML = `
                     <span class="dropdown-caret"></span>
                   </button>
                 <div class="dropdown-content">
-                  <a href="About/About.html">About FC Ballers</a>
+                  <a href="About.html">About FC Ballers</a>
                   <a href="Community.html">Community</a>
                   <a href="Staff.html">Staff</a>
                   <a href="FAQ.html">FAQ</a>
@@ -101,7 +101,7 @@ navElement.innerHTML = `
                     <span class="mobile-dropdown-caret"></span>
                   </label>
                 <div class="mobile-dropdown-content">
-                  <a href="About/About.html">About FC Ballers</a>
+                  <a href="About.html">About FC Ballers</a>
                   <a href="Community.html">Community</a>
                   <a href="Staff.html">Staff</a>
                   <a href="FAQ.html">FAQ</a>
