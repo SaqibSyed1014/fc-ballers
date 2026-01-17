@@ -74,7 +74,7 @@
       h2 {
         font-size: 18px;
         text-transform: uppercase;
-        color: var(--blue);
+        color: var(--white);
         letter-spacing: 0.08em;
         margin-bottom: 14px;
       }
@@ -166,6 +166,10 @@
         font-weight: 700;
         color: var(--blue);
       }
+
+        ul.info-box li::marker {
+            color: var(--blue); /* Your TekkyFutbol Green */
+        }
 
       /* TRANSPARENCY BOX */
       .info-box {
@@ -532,7 +536,7 @@
     <!-- CURRENT SEASON RESULTS -->
     <section>
       <div class="max-width">
-        <h2>Current Season Results</h2>
+        <h2>Current Season <span class="text-blue">Results</span></h2>
 
         <div class="match-card">
           <div class="match-placeholder">
@@ -562,7 +566,7 @@
     <!-- SEASON SUMMARY -->
     <section>
       <div class="max-width">
-        <h2>Season Summary</h2>
+        <h2>Season <span class="text-blue">Summary</span></h2>
         <div class="stats-box">
           <div class="stats-grid">
             <div class="stat-item">
@@ -597,7 +601,7 @@
     <!-- TRANSPARENCY STATEMENT -->
     <section>
       <div class="max-width">
-        <h2>Transparency Statement</h2>
+        <h2>Transparency <span class="text-blue">Statement</span></h2>
         <ul class="info-box">
           <li class="body-text">
             FC Ballers is committed to competitive integrity and clear

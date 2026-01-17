@@ -10,7 +10,19 @@
     url("https://db.onlinewebfonts.com/t/deb155a75b6db277fb70490b49eb6db8.svg#InkstonCasualBold")format("svg");
 }
 
-.hero-title, .hero-title span, .section-title, .section-title span {
+:root {
+    --blue: #0ab9ff;
+    --black: #000;
+    --white: #fff;
+    --grey: rgba(255, 255, 255, 0.75);
+}
+
+.hero-title,
+.hero-title span,
+.section-title,
+.section-title span,
+section h2,
+section h2 span {
     font-family: "InkstonCasualBold";
 }
 .hero-title{
@@ -29,3 +41,5 @@
     ),
     var(--black);
 }
+
+.text-blue{ color: var(--blue); }
