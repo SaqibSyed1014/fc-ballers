@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Player Profile • FC Ballers</title>
+    <!-- Modular navbar CSS -->
+    <link rel="stylesheet" href="navbar/navbar.css" />
+    <style>
+      :root {
+        --blue: #0ab9ff;
+        --white: #fff;
+        --black: #000;
+        --grey: rgba(255, 255, 255, 0.75);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      body {
+        background: var(--black);
+        color: var(--white);
+        line-height: 1.6;
+      }
+      .max {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      .section-eyebrow {
+        text-transform: uppercase;
+        font-size: 11px;
+        color: var(--grey);
+        letter-spacing: 0.16em;
+        margin-bottom: 4px;
+      }
+      .section-title {
+        text-transform: uppercase;
+        font-size: 20px;
+        letter-spacing: 0.08em;
+        margin-bottom: 10px;
+      }
+      .section-title span {
+        color: var(--blue);
+      }
+      .white-divider {
+        height: 1px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.18);
+        margin: 18px 0;
+      }
+
+      .player-header {
+        text-align: center;
+        padding: 40px 0;
+      }
+      .player-img {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        border: 1px dashed rgba(255, 255, 255, 0.35);
+        margin: 0 auto 14px;
+      }
+      .player-name {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 4px;
+      }
+      .player-role {
+        font-size: 14px;
+        color: var(--grey);
+      }
+
+      section {
+        padding: 30px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .card {
+        background: #050505;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 14px;
+        padding: 16px;
+        margin-bottom: 14px;
+      }
+      .card h3 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 10px;
+        color: var(--blue);
+      }
+      .card p {
+        font-size: 14px;
+        color: var(--white);
+        margin-bottom: 6px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 18px 16px 26px;
+        font-size: 11px;
+        color: var(--grey);
+        text-align: center;
+      }
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 12px;
+      }
+      .footer-copyright {
+        margin-top: 4px;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 10px;
+        transition: color 0.2s ease;
+      }
+      .footer-links a:hover {
+        color: var(--blue);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="max-width navbar-container">
+        <input type="checkbox" id="mobile-check" />
+        <div class="nav-left">
+          <a href="/Home/Homepage.html" class="nav-link">Home</a>
+          <div class="dropdown">
+            <button class="dropbtn">
+              About<span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/About/About.html">About FC Ballers</a>
+              <a href="/Partners.html">Partners</a>
+              <a href="/Become Partners.html">Partnerships</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">
+              Teams<span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Teams</a>
+              <a href="/Season scheduele.html">Schedule</a>
+              <a href="#">Results</a>
+            </div>
+          </div>
+          <a href="/Public roster.html" class="nav-link">Public Roster</a>
+        </div>
+        <div class="nav-brand">
+          <a href="Home/Homepage.html"
+            ><img src="Home/Logo.png" alt="FC Ballers Logo"
+          /></a>
+        </div>
+        <div class="nav-right">
+          <div class="dropdown">
+            <button class="dropbtn">
+              Join<span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+              <a href="/Join Movement Form.html">Newsletter</a>
+            </div>
+          </div>
+          <a href="/Merch.html" class="nav-link">Store</a>
+          <a href="/Media and hilights.html" class="nav-link">Media</a>
+          <a href="/Contact.html" class="nav-link">Contact</a>
+          <div class="dropdown">
+            <button class="dropbtn">
+              Legal<span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Privacy policy.html">Privacy</a>
+              <a href="/Terms and conditions.html">Terms</a>
+              <a href="/Refund policy.html">Refund Policy</a>
+            </div>
+          </div>
+        </div>
+        <label for="mobile-check" class="hamburger-label" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </label>
+        <div class="mobile-nav">
+          <!-- Mobile About Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-about-check" />
+            <label for="mobile-about-check" class="mobile-dropdown-label">
+              About
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/About/About.html">About FC Ballers</a>
+              <a href="/Community.html">Community</a>
+              <a href="/Staff.html">Staff</a>
+              <a href="/FAQ.html">FAQ</a>
+            </div>
+          </div>
+
+          <!-- Mobile Teams Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-teams-check" />
+            <label for="mobile-teams-check" class="mobile-dropdown-label">
+              Teams
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Teams.html">Teams</a>
+              <a href="/Season scheduele.html">Schedule</a>
+              <a href="/Results.html">Results</a>
+            </div>
+          </div>
+
+          <a href="/Public roster.html">Roster</a>
+
+          <!-- Mobile Join Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-join-check" />
+            <label for="mobile-join-check" class="mobile-dropdown-label">
+              Join
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+              <a href="/Player resources.html">Player Resources</a>
+              <a href="/Join Movement Form.html">Newsletter</a>
+            </div>
+          </div>
+
+          <a href="/Merch.html">Store</a>
+
+          <!-- Mobile Media Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-media-check" />
+            <label for="mobile-media-check" class="mobile-dropdown-label">
+              Media
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Media and hilights.html">Media & Highlights</a>
+              <a href="/Press Kit.html">Press Kit</a>
+            </div>
+          </div>
+
+          <a href="/Contact.html">Contact</a>
+
+          <!-- Mobile Partners Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-partners-check" />
+            <label for="mobile-partners-check" class="mobile-dropdown-label">
+              Partners
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Partners.html">Partnership Options</a>
+              <a href="/Become Partners.html">Start a Partnership</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="max">
+      <div class="player-header">
+        <div class="player-img"></div>
+        <div class="player-name">Player Name</div>
+        <div class="player-role">Positionless • FC Ballers</div>
+      </div>
+      <section>
+        <div class="section-eyebrow">Overview</div>
+        <div class="section-title"><span>Player</span> Summary</div>
+        <div class="white-divider"></div>
+        <p>General player information and quick intro can go here.</p>
+      </section>
+      <section>
+        <div class="section-eyebrow">Stats</div>
+        <div class="section-title">Season <span>Stats</span></div>
+        <div class="white-divider"></div>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Games Played</h3>
+            <p>0</p>
+          </div>
+          <div class="card">
+            <h3>Goals</h3>
+            <p>0</p>
+          </div>
+          <div class="card">
+            <h3>Assists</h3>
+            <p>0</p>
+          </div>
+          <div class="card">
+            <h3>Tackles</h3>
+            <p>0</p>
+          </div>
+          <div class="card">
+            <h3>Distance Covered</h3>
+            <p>0 km</p>
+          </div>
+          <div class="card">
+            <h3>Top Speed</h3>
+            <p>0 mph</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="section-eyebrow">Development</div>
+        <div class="section-title">Development <span>Areas</span></div>
+        <div class="white-divider"></div>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Technical Focus</h3>
+            <p>
+              Example: first touch under pressure, weak-foot passing, 1v1
+              take-ons from the left side.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Physical Focus</h3>
+            <p>
+              Example: acceleration over first 5–10 meters, late-game stamina,
+              lower-body strength.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Tactical Focus</h3>
+            <p>
+              Example: timing of runs in behind, pressing triggers, defensive
+              positioning in our shape.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Mental Focus</h3>
+            <p>
+              Example: body language after mistakes, staying locked in off the
+              ball, communication.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="section-eyebrow">Weekly</div>
+        <div class="section-title">Weekly <span>Focus</span></div>
+        <div class="white-divider"></div>
+        <div class="card">
+          <h3>This Week</h3>
+          <p>Player-specific weekly coaching notes...</p>
+        </div>
+      </section>
+      <section>
+        <div class="section-eyebrow">Notes</div>
+        <div class="section-title">Private <span>Notes</span></div>
+        <div class="white-divider"></div>
+        <div class="card">
+          <p>Coach-only notes…</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="/Privacy policy.html">Privacy Policy</a>
+          <a href="/Terms and conditions.html">Terms & Conditions</a>
+          <a href="/Refund policy.html">Refund Policy</a>
+        </div>
+        <div class="footer-copyright">
+          © 2026 FC Ballers · Chicago Football Club. For ballers who create,
+          compete, and represent the city.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About | FC Ballers · Chicago Football Club</title>
+    <link rel="stylesheet" href="About/About.css" />
+    <link rel="stylesheet" href="navbar/navbar.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- NAV -->
+      <header class="navbar">
+        <div class="max-width navbar-container">
+          <!-- Hidden Checkbox for Mobile Toggle -->
+          <input type="checkbox" id="mobile-check" />
+
+          <!-- LEFT NAV -->
+          <div class="nav-left">
+            <div class="dropdown">
+              <button class="dropbtn">
+                About
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/About/About.html">About FC Ballers</a>
+                <a href="/Community.html">Community</a>
+                <a href="/Staff.html">Staff</a>
+                <a href="/FAQ.html">FAQ</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Teams
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Teams.html">Teams</a>
+                <a href="/Season scheduele.html">Schedule</a>
+                <a href="/Results.html">Results</a>
+              </div>
+            </div>
+
+            <a href="/Public roster.html" class="nav-link">Public Roster</a>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Join
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+                <a href="/Player resources.html">Player Resources</a>
+                <a href="/Join Movement Form.html">Newsletter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CENTER LOGO -->
+          <div class="nav-brand">
+            <a href="Home/Homepage.html">
+              <img src="Logo.png" alt="FC Ballers Logo" />
+            </a>
+          </div>
+
+          <!-- RIGHT NAV -->
+          <div class="nav-right">
+            <a href="/Merch.html" class="nav-link">Store</a>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Media
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Media and hilights.html">Media & Highlights</a>
+                <a href="/Press Kit.html">Press Kit</a>
+              </div>
+            </div>
+
+            <a href="/Contact.html" class="nav-link">Contact</a>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Partners
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Partners.html">Partnership Options</a>
+                <a href="/Become Partners.html">Start a Partnership</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- MOBILE HAMBURGER LABEL -->
+          <label for="mobile-check" class="hamburger-label" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <!-- MOBILE OVERLAY -->
+          <div class="mobile-nav">
+            <!-- Mobile About Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-about-check" />
+              <label for="mobile-about-check" class="mobile-dropdown-label">
+                About
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/About/About.html">About FC Ballers</a>
+                <a href="/Community.html">Community</a>
+                <a href="/Staff.html">Staff</a>
+                <a href="/FAQ.html">FAQ</a>
+              </div>
+            </div>
+
+            <!-- Mobile Teams Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-teams-check" />
+              <label for="mobile-teams-check" class="mobile-dropdown-label">
+                Teams
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Teams.html">Teams</a>
+                <a href="/Season scheduele.html">Schedule</a>
+                <a href="/Results.html">Results</a>
+              </div>
+            </div>
+
+            <a href="/Public roster.html">Roster</a>
+
+            <!-- Mobile Join Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-join-check" />
+              <label for="mobile-join-check" class="mobile-dropdown-label">
+                Join
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+                <a href="/Player resources.html">Player Resources</a>
+                <a href="/Join Movement Form.html">Newsletter</a>
+              </div>
+            </div>
+
+            <a href="/Merch.html">Store</a>
+
+            <!-- Mobile Media Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-media-check" />
+              <label for="mobile-media-check" class="mobile-dropdown-label">
+                Media
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Media and hilights.html">Media & Highlights</a>
+                <a href="/Press Kit.html">Press Kit</a>
+              </div>
+            </div>
+
+            <a href="/Contact.html">Contact</a>
+
+            <!-- Mobile Partners Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-partners-check" />
+              <label for="mobile-partners-check" class="mobile-dropdown-label">
+                Partners
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Partners.html">Partnership Options</a>
+                <a href="/Become Partners.html">Start a Partnership</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="wrapper hero-inner">
+          <div>
+            <div class="eyebrow highlight-text">About the club</div>
+            <h1 class="hero-title">
+              Chicago football, <span>organized chaos</span>
+            </h1>
+            <p class="hero-subtitle">
+              FC Ballers is a positionless, street-inspired football club
+              repping Chicago. Think cage football energy with real structure
+              behind it — freedom on the ball, discipline without it.
+            </p>
+            <div class="hero-pill-row">
+              <div class="pill">Positionless roles</div>
+              <div class="pill">Street-inspired identity</div>
+              <div class="pill">Semi-pro standards</div>
+            </div>
+            <div class="hero-meta">
+              Part of the TekkyFutbol universe — for ballers who want more than
+              “pick a spot and stay there.”
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Identity -->
+      <section id="identity">
+        <div class="wrapper">
+          <div class="section-header">
+            <div class="section-eyebrow highlight-text">Identity</div>
+            <h2 class="section-title">Who FC Ballers is <span>for</span></h2>
+            <p class="section-subtitle">
+              For players who grew up on street, cages, pickup and YouTube
+              highlights — but still want a serious environment with standards,
+              not chaos.
+            </p>
+          </div>
+          <div class="two-col">
+            <div>
+              <p class="body-text">
+                FC Ballers exists for hoopers of the pitch — creative players
+                who hate being told to “stay in your lane” but still respect the
+                team. If you want to express yourself
+                <em>and</em> win games, this is your lane.
+              </p>
+              <p class="body-text">
+                We’re not trying to copy traditional clubs. The club is built to
+                feel like a crossover between street football, modern tactics,
+                and content culture — a place where training is demanding,
+                feedback is honest, and the vibe still feels like balling with
+                friends under lights.
+              </p>
+              <div class="stat-cards">
+                <div class="stat-card">
+                  <div class="stat-label">Club vibe</div>
+                  <div class="stat-value">Street energy · Club standards</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Environment</div>
+                  <div class="stat-value">High standards · Low politics</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">For players who</div>
+                  <div class="stat-value">
+                    Create, compete &amp; actually care
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Mission & Vision -->
+      <section id="mission">
+        <div class="wrapper">
+          <div class="section-header">
+            <div class="section-eyebrow highlight-text">
+              Mission &amp; vision
+            </div>
+            <h2 class="section-title">
+              What we’re trying to <span>build</span>
+            </h2>
+          </div>
+          <div class="two-col">
+            <div>
+              <p class="body-text">
+                <strong style="color: var(--blue)">Mission:</strong> give
+                Chicago ballers a club that actually matches how they play —
+                expressive, intense, unafraid — while still respecting game IQ,
+                structure, and discipline.
+              </p>
+              <p class="body-text">
+                <strong style="color: var(--blue)">Vision:</strong> become one
+                of the main hubs for modern football in the city — where players
+                can hoop in the TekkyFutbol universe, get real footage, and test
+                themselves in a proper club environment.
+              </p>
+              <p class="body-text">
+                Long-term, the aim is to grow from local fixtures into tougher
+                competition while keeping the same DNA: street roots, organized
+                chaos, and a culture that feels alive.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Style of play & values -->
+
+      <section id="investment">
+        <div class="wrapper">
+          <div class="section-header">
+            <div class="section-eyebrow highlight-text">Player Investment</div>
+            <h2 class="section-title">
+              What it costs to be part of <span>FC Ballers</span>
+            </h2>
+            <p class="section-subtitle">
+              A one-time seasonal payment covers every major expense — no
+              surprises, no hidden fees.
+            </p>
+          </div>
+          <div class="two-col">
+            <div>
+              <p class="body-text">
+                We don’t nickel-and-dime players. If you're selected,
+                <strong>FC Ballers</strong> operates on a
+                <strong>single, seasonal payment</strong> that includes
+                everything you need to show up and hoop at a high level.
+              </p>
+              <ul class="body-text" style="margin-left: 18px; list-style: disc">
+                <li><span>League fees</span></li>
+                <li><span>Referee fees</span></li>
+                <li><span>Field rentals</span></li>
+                <li><span>Full uniform kit</span></li>
+                <li><span>Travel expenses for away matches</span></li>
+              </ul>
+              <p class="body-text">
+                Pay once. Focus on football. The club handles the rest.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="style">
+        <div class="wrapper">
+          <div class="section-header">
+            <div class="section-eyebrow highlight-text">
+              Game model &amp; values
+            </div>
+            <h2 class="section-title">
+              How we play — and what we <span>stand on</span>
+            </h2>
+            <p class="section-subtitle">
+              Positionless on paper, disciplined in reality. The deeper rules
+              stay in the locker room — but you’ll know what we’re about in the
+              first five minutes.
+            </p>
+          </div>
+          <div class="two-col">
+            <div>
+              <p class="body-text">
+                We don’t do “you’re a right back, never cross this line.”
+                Instead of locking players into spots, we use
+                <strong>fluid roles</strong>. Players rotate, interchange, and
+                pop up in different zones — but always with clear
+                responsibilities behind it.
+              </p>
+              <p class="body-text">
+                Everyone attacks, everyone defends. You might start wide and end
+                up between the lines. You might press high one moment and drop
+                to protect space the next. From the outside it looks like
+                freedom. On the inside, it’s
+                <strong>organized chaos with structure</strong>.
+              </p>
+              <p class="body-text">
+                The exact tactical details stay in-house. What people will see:
+                a team that presses together, plays fast, isn’t scared to try
+                things, and still respects the grind.
+              </p>
+            </div>
+            <div>
+              <div class="values-grid">
+                <div class="value-card">
+                  <div class="value-tag">On the ball</div>
+                  <div class="value-title">Positionless, not reckless</div>
+                  <p>
+                    Freedom to move, rotate, and find pockets — as long as
+                    spacing, angles, and tempo stay right. Creativity with
+                    purpose, not chaos for no reason.
+                  </p>
+                </div>
+                <div class="value-card">
+                  <div class="value-tag">Off the ball</div>
+                  <div class="value-title">Everyone, everywhere</div>
+                  <p>
+                    No passengers. Wherever you are on the pitch, you’ve got a
+                    job — pressing, covering, or protecting space. Effort and
+                    discipline earn minutes.
+                  </p>
+                </div>
+                <div class="value-card">
+                  <div class="value-tag">Culture</div>
+                  <div class="value-title">Street DNA, club standards</div>
+                  <p>
+                    The risk, swagger, and creativity from street football —
+                    with added accountability, fitness, and structure. You can
+                    flex, but you still have to run.
+                  </p>
+                </div>
+                <div class="value-card">
+                  <div class="value-tag">Environment</div>
+                  <div class="value-title">Honest &amp; competitive</div>
+                  <p>
+                    Straight talk over fake promises. If you’re hooping, you
+                    know. If you’re slacking, you know. The standard is the
+                    standard.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Ecosystem / Tekky connection -->
+      <section class="ecosystem" id="ecosystem">
+        <div class="wrapper">
+          <div class="section-header">
+            <div class="section-eyebrow highlight-text">Ecosystem</div>
+            <h2 class="section-title">
+              Part of a bigger football <span>universe</span>
+            </h2>
+            <p class="section-subtitle">
+              FC Ballers lives inside the TekkyFutbol world — small-sided,
+              creative, and built on real Chicago street football energy.
+            </p>
+          </div>
+          <div class="ecosystem-layout">
+            <div>
+              <p class="body-text">
+                TekkyFutbol brings the events, vibes, and small-sided
+                creativity. FC Ballers brings the club side — longer games, more
+                structure, real tactics, and a season to take seriously.
+              </p>
+              <p class="body-text">
+                Players can show out in TekkyFutbol, build a name, and then test
+                themselves in a club environment that expects fitness, game IQ,
+                and consistency — not just one viral moment.
+              </p>
+              <div class="ecosystem-pill-row">
+                <div class="pill">Events &amp; culture · TekkyFutbol</div>
+                <div class="pill">Club environment · FC Ballers</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CTA -->
+      <section class="cta" id="cta">
+        <div class="wrapper cta-inner">
+          <h2 class="cta-title highlight-text">Be part of the project.</h2>
+          <p class="cta-sub">
+            FC Ballers is for players who actually care — about how they play,
+            how they train, and how they represent Chicago. If that sounds like
+            you, tap in.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/Tryouts.html">Tryouts</a>
+            <a class="btn btn-primary" href="/Partners.html">Partners</a>
+            <a class="btn btn-primary" href="/Contact.html">Stay in the loop</a>
+          </div>
+        </div>
+      </section>
+      <!-- FOOTER -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-links">
+            <a href="/Privacy policy.html">Privacy Policy</a>
+            <a href="/Terms and conditions.html">Terms & Conditions</a>
+            <a href="/Refund policy.html">Refund Policy</a>
+          </div>
+          <div class="footer-copyright">
+            © 2026 FC Ballers · Chicago Football Club. For ballers who create,
+            compete, and represent the city.
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

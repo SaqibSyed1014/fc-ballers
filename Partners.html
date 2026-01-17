@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partners • FC Ballers</title>
+    <!-- Modular navbar CSS -->
+    <link rel="stylesheet" href="navbar/navbar.css" />
+
+    <style>
+      :root {
+        --blue: #0ab9ff;
+        --black: #000;
+        --white: #fff;
+        --grey: rgba(255, 255, 255, 0.75);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      body {
+        background: var(--black);
+        color: var(--white);
+        line-height: 1.6;
+      }
+      .max-width {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+      section {
+        padding: 40px 0;
+        /* border-bottom: 1px solid rgba(255, 255, 255, 0.12); */
+      }
+      .hero-fade {
+        background: radial-gradient(
+            circle at top,
+            rgba(10, 185, 255, 0.3),
+            rgba(10, 185, 255, 0.1) 50%,
+            transparent 80%
+          ),
+          var(--black);
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+      .section-eyebrow {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--blue);
+        margin-bottom: 6px;
+      }
+      .section-title {
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+      .section-title span {
+        color: var(--blue);
+      }
+      .section-sub {
+        font-size: 14px;
+        color: var(--grey);
+        max-width: 520px;
+        margin-bottom: 18px;
+      }
+      .body-text {
+        font-size: 14px;
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        margin-top: 16px;
+      }
+      @media (max-width: 860px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+      .placeholder-panel {
+        border: 1px dashed var(--grey);
+        padding: 18px;
+        border-radius: 12px;
+        text-align: center;
+        color: var(--grey);
+      }
+      .card {
+        border: 1px solid var(--blue);
+        border-radius: 14px;
+        padding: 16px;
+        background: #050505;
+        margin-bottom: 18px;
+      }
+      .card-title {
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        margin-bottom: 6px;
+        color: var(--blue);
+      }
+      .card-body {
+        font-size: 14px;
+        color: var(--white);
+      }
+      ul {
+        margin-left: 18px;
+      }
+      ul li {
+        margin-bottom: 6px;
+        color: var(--blue);
+      }
+      ul li span {
+        color: var(--white);
+        font-weight: normal;
+      }
+      .btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+      .btn-primary {
+  background: var(--blue);
+  color: var(--black);
+  border-color: var(--blue);
+  font-weight: 700;
+}
+      /* Disabled links */
+      .dropdown-content a.disabled,
+      .mobile-dropdown-content a.disabled {
+        color: rgba(255, 255, 255, 0.45);
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.65;
+        position: relative;
+      }
+      .dropdown-content a.disabled:hover,
+      .mobile-dropdown-content a.disabled:hover {
+        background: transparent;
+        color: rgba(255, 255, 255, 0.45);
+        padding-left: 20px;
+      }
+      .dropdown-content a.disabled::before,
+      .mobile-dropdown-content a.disabled::before {
+        display: none;
+      }
+      .dropdown-content a.disabled::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.3);
+      }
+      /* FOOTER */
+      footer {
+        padding: 18px 16px 26px;
+        font-size: 11px;
+        color: var(--grey);
+        text-align: center;
+      }
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 12px;
+      }
+      .footer-copyright {
+        margin-top: 4px;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 10px;
+        transition: color 0.2s ease;
+      }
+      .footer-links a:hover {
+        color: var(--blue);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- NAV -->
+      <header class="navbar">
+        <div class="max-width navbar-container">
+          <!-- Hidden Checkbox for Mobile Toggle -->
+          <input type="checkbox" id="mobile-check" />
+
+          <!-- LEFT NAV -->
+          <div class="nav-left">
+            <div class="dropdown">
+              <button class="dropbtn">
+                About
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/About/About.html">About FC Ballers</a>
+                <a href="/Community.html">Community</a>
+                <a href="/Staff.html">Staff</a>
+                <a href="/FAQ.html">FAQ</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Teams
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Teams.html">Teams</a>
+                <a href="/Season scheduele.html">Schedule</a>
+                <a href="/Results.html">Results</a>
+              </div>
+            </div>
+
+            <a href="/Public roster.html" class="nav-link">Public Roster</a>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Join
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+                <a href="/Player resources.html">Player Resources</a>
+                <a href="/Join Movement Form.html">Newsletter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CENTER LOGO -->
+          <div class="nav-brand">
+            <a href="Home/Homepage.html">
+              <img src="Logo.png" alt="FC Ballers Logo" />
+            </a>
+          </div>
+
+        <!-- RIGHT NAV -->
+        <div class="nav-right">
+          <a href="/Merch.html" class="nav-link">Store</a>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Media
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Media and hilights.html">Media & Highlights</a>
+              <a href="/Press Kit.html">Press Kit</a>
+            </div>
+          </div>
+
+          <a href="/Contact.html" class="nav-link">Contact</a>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Partners
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Partners.html">Partnership Options</a>
+              <a href="/Become Partners.html">Start a Partnership</a>
+            </div>
+          </div>
+        </div>
+
+          <!-- MOBILE HAMBURGER LABEL -->
+          <label for="mobile-check" class="hamburger-label" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <!-- MOBILE OVERLAY -->
+          <div class="mobile-nav">
+            <!-- Mobile About Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-about-check" />
+              <label for="mobile-about-check" class="mobile-dropdown-label">
+                About
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/About/About.html">About FC Ballers</a>
+                <a href="/Community.html">Community</a>
+                <a href="/Staff.html">Staff</a>
+                <a href="/FAQ.html">FAQ</a>
+              </div>
+            </div>
+
+            <!-- Mobile Teams Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-teams-check" />
+              <label for="mobile-teams-check" class="mobile-dropdown-label">
+                Teams
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Teams.html">Teams</a>
+                <a href="/Season scheduele.html">Schedule</a>
+                <a href="/Results.html">Results</a>
+              </div>
+            </div>
+
+            <a href="/Public roster.html">Roster</a>
+
+            <!-- Mobile Join Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-join-check" />
+              <label for="mobile-join-check" class="mobile-dropdown-label">
+                Join
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+                <a href="/Player resources.html">Player Resources</a>
+                <a href="/Join Movement Form.html">Newsletter</a>
+              </div>
+            </div>
+
+            <a href="/Merch.html">Store</a>
+
+            <!-- Mobile Media Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-media-check" />
+              <label for="mobile-media-check" class="mobile-dropdown-label">
+                Media
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Media and hilights.html">Media & Highlights</a>
+                <a href="/Press Kit.html">Press Kit</a>
+              </div>
+            </div>
+
+          <a href="/Contact.html">Contact</a>
+
+          <!-- Mobile Partners Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-partners-check" />
+            <label for="mobile-partners-check" class="mobile-dropdown-label">
+              Partners
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Partners.html">Partnership Options</a>
+              <a href="/Become Partners.html">Start a Partnership</a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </header>
+
+      <section class="hero-fade">
+        <div class="max-width">
+          <div class="section-eyebrow">Partners</div>
+          <h2 class="section-title">Build <span>With Us</span></h2>
+          <p class="section-sub">
+            Support a growing Chicago football movement grounded in creativity,
+            discipline, and identity.
+            <p class="section-sub" style="margin-top: 10px">
+              Full list of partners coming soon.
+            </p>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="max-width">
+          <div class="section-eyebrow highlight-text">Overview</div>
+          <h2 class="section-title">Partnership <span>Options</span></h2>
+          <div class="two-col">
+            <div class="body-text">
+              FC Ballers offers simple, flexible partnership tiers designed for
+              clarity and real visibility. Whether you're a local brand,
+              creator, business, or community leader, you can support the
+              movement and appear across our platforms, events, and training
+              environments.
+            </div>
+            <!-- <div class="placeholder-panel">
+              Future partnership graphics or branding
+            </div> -->
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="max-width">
+          <div class="section-eyebrow">Tiers</div>
+          <h2 class="section-title">Partner <span>Tiers</span></h2>
+
+          <div class="card">
+            <div class="card-title">Tier 1 — $0</div>
+            <div class="card-body">
+              <ul>
+                <li> <span>Basic shoutout</span></li>
+                <li> <span>Listed on website</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Tier 2 — Contact for pricing</div>
+            <div class="card-body">
+              <ul>
+                <li><span>Your logo on the FC Ballers website</span></li>
+                <li><span>Appear in specific content pieces</span></li>
+                <li><span>Included in event banners</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Tier 3 — Contact for pricing</div>
+            <div class="card-body">
+              <ul>
+                <li><span>Logo placement on back of training shirt</span></li>
+                <li><span>Appear in multiple content pieces</span></li>
+                <li><span>Included in event banners</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Tier 4 — Contact for pricing</div>
+            <div class="card-body">
+              <ul>
+                <li><span>Front training shirt logo placement</span></li>
+                <li><span>Included in most content & events</span></li>
+                <li><span>Featured in group photos</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="max-width">
+          <div class="section-eyebrow">Next step</div>
+          <h2 class="section-title">Become a <span>Partner</span></h2>
+          <p class="section-sub">
+            Interested in partnering? Contact us with your brand details and
+            we’ll find a tier that fits.
+          </p>
+          <a href="mailto:FCBallers.Chi@gmail.com" style="text-decoration: none;" class="btn btn-primary">Start a Partnership Conversation</a>
+        </div>
+      </section>
+    </div>
+  </body>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="/Privacy policy.html">Privacy Policy</a>
+        <a href="/Terms and conditions.html">Terms & Conditions</a>
+        <a href="/Refund policy.html">Refund Policy</a>
+      </div>
+      <div class="footer-copyright">
+        © 2026 FC Ballers · Chicago Football Club. For ballers who create, compete,
+        and represent the city.
+      </div>
+    </div>
+  </footer>
+</html>

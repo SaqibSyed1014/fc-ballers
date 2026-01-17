@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FC Ballers • Chicago Football Club</title>
+    <!-- Modular navbar CSS -->
+    <link rel="stylesheet" href="navbar/navbar.css" />
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="Home/Homepage.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- NAV -->
+      <header class="navbar">
+        <div class="max-width navbar-container">
+          <!-- Hidden Checkbox for Mobile Toggle -->
+          <input type="checkbox" id="mobile-check" />
+
+          <!-- LEFT NAV -->
+          <div class="nav-left">
+            <div class="dropdown">
+              <button class="dropbtn">
+                About
+                <span class="dropdown-caret"></span>
+              </button>
+            <div class="dropdown-content">
+              <a href="/About/About.html">About FC Ballers</a>
+              <a href="/Community.html">Community</a>
+              <a href="/Staff.html">Staff</a>
+              <a href="/FAQ.html">FAQ</a>
+            </div>
+            </div>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Teams
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Teams.html">Teams</a>
+                <a href="/Season scheduele.html">Schedule</a>
+                <a href="/Results.html">Results</a>
+              </div>
+            </div>
+
+            <a href="/Public roster.html" class="nav-link">Public Roster</a>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Join
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+                <a href="/Player resources.html">Player Resources</a>
+                <a href="/Join Movement Form.html">Newsletter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CENTER LOGO -->
+          <div class="nav-brand">
+            <a href="#">
+              <img src="Logo.png" alt="FC Ballers Logo" />
+            </a>
+          </div>
+
+        <!-- RIGHT NAV -->
+        <div class="nav-right">
+          <a href="/Merch.html" class="nav-link">Store</a>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Media
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Media and hilights.html">Media & Highlights</a>
+              <a href="/Press Kit.html">Press Kit</a>
+            </div>
+          </div>
+
+          <a href="/Contact.html" class="nav-link">Contact</a>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Partners
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Partners.html">Partnership Options</a>
+              <a href="/Become Partners.html">Start a Partnership</a>
+            </div>
+          </div>
+        </div>
+
+          <!-- MOBILE HAMBURGER LABEL -->
+          <label for="mobile-check" class="hamburger-label" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <!-- MOBILE OVERLAY -->
+          <div class="mobile-nav">
+            <!-- Mobile About Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-about-check" />
+              <label for="mobile-about-check" class="mobile-dropdown-label">
+                About
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+            <div class="mobile-dropdown-content">
+              <a href="/About/About.html">About FC Ballers</a>
+              <a href="/Community.html">Community</a>
+              <a href="/Staff.html">Staff</a>
+              <a href="/FAQ.html">FAQ</a>
+            </div>
+            </div>
+
+            <!-- Mobile Teams Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-teams-check" />
+              <label for="mobile-teams-check" class="mobile-dropdown-label">
+                Teams
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Teams.html">Teams</a>
+                <a href="/Season scheduele.html">Schedule</a>
+                <a href="/Results.html">Results</a>
+              </div>
+            </div>
+
+            <a href="/Public roster.html">Roster</a>
+
+            <!-- Mobile Join Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-join-check" />
+              <label for="mobile-join-check" class="mobile-dropdown-label">
+                Join
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+                <a href="/Player resources.html">Player Resources</a>
+                <a href="/Join Movement Form.html">Newsletter</a>
+              </div>
+            </div>
+
+            <a href="/Merch.html">Store</a>
+
+            <!-- Mobile Media Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-media-check" />
+              <label for="mobile-media-check" class="mobile-dropdown-label">
+                Media
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Media and hilights.html">Media & Highlights</a>
+                <a href="/Press Kit.html">Press Kit</a>
+              </div>
+            </div>
+
+          <a href="/Contact.html">Contact</a>
+
+          <!-- Mobile Partners Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-partners-check" />
+            <label for="mobile-partners-check" class="mobile-dropdown-label">
+              Partners
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Partners.html">Partnership Options</a>
+              <a href="/Become Partners.html">Start a Partnership</a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </header>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="max-width hero-inner">
+          <div>
+            <div class="eyebrow">
+              <span style="color:var(--blue)">Chicago</span> ·
+              <span style="color:var(--blue)">Positionless Football</span>
+            </div>
+            <h1 class="hero-title">
+             For ballers who don't need
+<span> permission</span>
+            </h1>
+            <p class="hero-sub">
+              FC Ballers is a Chicago-area club built on discipline, expression,
+              and <span style="color:var(--blue)">positionless football</span>. No
+              politics. No shortcuts. Just work, standards, and football.
+            </p>
+            <div class="hero-tags">
+              <div class="tag-pill">One-time seasonal payment</div>
+              <div class="tag-pill">Uniforms, league &amp; travel covered</div>
+              <div class="tag-pill">Serious ballers only</div>
+            </div>
+            <div class="hero-ctas">
+              <a class="btn-primary" href="/Tryouts.html"
+                >Tryouts · March 2026</a
+              >
+              <!-- <a class="btn-secondary btn-ghost" href="../About/About.html"
+                >What is FC Ballers?</a
+              > -->
+            </div>
+          </div>
+          <div class="hero-panel">
+            <div class="hero-panel-title" style="color: var(--blue);">Next up</div>
+            <div class="hero-panel-main">
+              Tryouts · March 2026 · Chicago area
+            </div>
+            <div class="hero-panel-sub">
+              $20 entry · Limited spots · 18–22 players selected.
+            </div>
+            <div class="hero-panel-line">
+              One-time seasonal payment — FC Ballers covers league fees,
+              uniforms, and travel so players can focus on performing.
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- WHY FC BALLERS -->
+      <section>
+        <div class="max-width">
+          <div class="section-eyebrow highlight-text">Why FC Ballers</div>
+          <h2 class="section-title">
+            What makes this club <span>different</span>
+          </h2>
+          <p class="section-sub">
+            We’re building a serious football environment that still feels like
+            you and your friends built it from the ground up — just with higher
+            standards.
+          </p>
+          <div class="grid-why">
+            <div class="why-card">
+              <div class="why-title">Player-first model</div>
+              <p class="why-body">
+                One-time seasonal payment. Club covers uniforms, league fees,
+                and travel. No hidden add-ons, no surprise invoices.
+              </p>
+            </div>
+            <div class="why-card">
+              <div class="why-title" style="color:var(--blue)">Positionless football</div>
+              <p class="why-body">
+                No one is glued to a box on a tactics board. Roles are fluid,
+                responsibilities are clear, and everyone is expected to create.
+              </p>
+            </div>
+            <div class="why-card">
+              <div class="why-title">Accountability built in</div>
+              <p class="why-body">
+                Standards around attendance, effort, and consistency. If you’re
+                here, you’re here to actually improve and compete.
+              </p>
+            </div>
+            <div class="why-card">
+              <div class="why-title">Chicago identity</div>
+              <p class="why-body">
+                Born from the city and suburbs that surround it. Training in the
+                NW Chicago area, built for ballers who represent where they’re
+                from.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- WHAT IS FC BALLERS -->
+      <section>
+        <div class="max-width">
+          <div class="section-eyebrow highlight-text">Club overview</div>
+          <h2 class="section-title">What is <span>FC Ballers</span></h2>
+          <p class="section-sub">
+            A semi-pro minded club with street DNA — built for players who want
+            more than pick-up but less politics than the usual system.
+          </p>
+          <div class="two-col">
+            <div>
+              <p class="body-text">
+                FC Ballers is a Chicago-area football club designed around a
+                simple idea: if you bring work ethic, discipline, and
+                creativity, the club handles the rest.
+              </p>
+              <p class="body-text">
+                No guaranteed spots. No empty promises. Just a clear environment
+                where standards are known and every session matters.
+              </p>
+              <ul class="bullet-list">
+                <li>
+                <span>  Serious training environment without losing the joy of ball.</span>
+                </li>
+                <li>
+                  <span>Players encouraged to express themselves and take risks.</span>
+                </li>
+                <li>
+                  <span>
+                    Fluid roles — everyone defends, everyone creates, everyone
+                    competes.
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="visual-panel">
+              <img
+                src="Home/what_is_fcballers.png"
+                alt="What is FC Ballers player kicking ball"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- TRYOUTS HIGHLIGHT -->
+      <section>
+        <div class="max-width">
+          <div class="section-eyebrow highlight-text">Step one</div>
+          <h2 class="section-title">Tap into <span>tryouts</span></h2>
+          <p class="section-sub">
+            One session to show how you move, think, and compete. We care more
+            about your habits and mentality than your highlight reel.
+          </p>
+          <div class="highlight-card">
+            <div class="highlight-meta">
+              March 2026 · Chicago Metropolitan Area
+            </div>
+            <div class="highlight-main">FC Ballers Open Tryouts</div>
+            <div class="highlight-sub">
+              $20 entry · 18+ · Limited spots. If selected, you’ll be invited
+              into a player-first environment with clear standards and
+              expectations.
+            </div>
+            <div class="highlight-tagline">
+              <span class="highlight-text">One-time seasonal payment</span> — FC
+              Ballers covers uniforms, league fees, and all travel.
+            </div>
+            <div style="margin-top: 12px">
+              <a class="btn-primary" href="/Tryouts.html"
+                >Details &amp; Registration</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ROSTER PREVIEW -->
+      <section>
+        <div class="max-width">
+          <div class="section-eyebrow highlight-text">Roster</div>
+          <h2 class="section-title">Built for <span>ballers</span></h2>
+          <p class="section-sub">
+            Final roster will feature 18–22 players. Everyone is expected to
+            bring something to the pitch — not just fill a number.
+          </p>
+          <div class="grid-roster">
+            <div class="player-card">
+              <div class="player-number">01</div>
+              <div class="player-name">Player 01</div>
+              <div class="player-label">Squad member</div>
+              <a class="view-link" href="#" onclick="openRosterModal(event)"
+                >View profile</a
+              >
+            </div>
+            <div class="player-card">
+              <div class="player-number">10</div>
+              <div class="player-name">Player 10</div>
+              <div class="player-label">Squad member</div>
+              <a class="view-link" href="#" onclick="openRosterModal(event)"
+                >View profile</a
+              >
+            </div>
+            <div class="player-card">
+              <div class="player-number">22</div>
+              <div class="player-name">Player 22</div>
+              <div class="player-label">Squad member</div>
+              <a class="view-link" href="#" onclick="openRosterModal(event)"
+                >View profile</a
+              >
+            </div>
+          </div>
+          <div style="margin-top: 14px">
+            <a class="btn-secondary" href="#" onclick="openFullRosterModal(event)"
+              >View full roster</a
+            >
+          </div>
+        </div>
+      </section>
+      <!-- SCHEDULE PREVIEW -->
+      <section>
+        <div class="max-width">
+          <div class="section-eyebrow highlight-text">Schedule</div>
+          <h2 class="section-title">Next<span> up</span></h2>
+          <p class="section-sub">
+            Final league schedule will be announced before kickoff. Here’s how a
+            typical match run looks.
+          </p>
+          <div class="grid-sched">
+            <div class="match-card highlight-text">
+              <div class="match-line">Matchday 1 · TBD vs FC Ballers</div>
+              <div class="match-meta">Date: TBA · Location: TBA</div>
+            </div>
+            <div class="match-card highlight-text">
+              <div class="match-line">Matchday 2 · FC Ballers vs TBD</div>
+              <div class="match-meta">Date: TBA · Location: TBA</div>
+            </div>
+            <div class="match-card highlight-text">
+              <div class="match-line">Matchday 3 · FC Ballers vs TBD</div>
+              <div class="match-meta">Date: TBA · Location: TBA</div>
+            </div>
+          </div>
+          <div style="margin-top: 14px">
+            <a class="view-link" href="/Season scheduele.html"
+              >View full schedule &amp; results</a
+            >
+          </div>
+        </div>
+      </section>
+      <!-- INVESTMENT STRIPE -->
+      <div class="stripe">
+        <div class="max-width stripe-inner">
+          <p class="stripe-text">
+            <strong><span class="highlight-text">One-time seasonal payment.</span></span></strong> FC Ballers covers
+            uniforms, league fees, and travel so players can focus on football.
+          </p>
+          <a class="btn-secondary" href="/Tryouts.html">Join tryouts</a>
+        </div>
+      </div>
+      <!-- STANDARDS -->
+      <section>
+        <div class="max-width">
+          <div class="section-eyebrow highlight-text">
+            Standards &amp; non-negotiables
+          </div>
+          <h2 class="section-title">How we <span>operate</span></h2>
+          <p class="section-sub">
+            We’re not perfect, but we are serious. These are the basics if you
+            want to wear the badge.
+          </p>
+          <div class="standards-grid">
+            <div class="standard-card">
+              <div class="standard-title">Show up</div>
+              <p class="standard-body">
+                Training and matches are treated like commitments, not
+                suggestions. If you’re in, be in.
+              </p>
+            </div>
+            <div class="standard-card">
+              <div class="standard-title">Compete every rep</div>
+              <p class="standard-body">
+                Sessions aren’t for coasting. Intensity, focus, and intent in
+                every drill and every small-sided game.
+              </p>
+            </div>
+            <div class="standard-card">
+              <div class="standard-title">Respect the group</div>
+              <p class="standard-body">
+                No ego, no drama. Push your teammates, don’t drag them. Everyone
+                is responsible for the atmosphere.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- FOOTER -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-links">
+            <a href="/Privacy policy.html">Privacy Policy</a>
+            <a href="/Terms and conditions.html">Terms & Conditions</a>
+            <a href="/Refund policy.html">Refund Policy</a>
+          </div>
+          <div class="footer-copyright">
+            © 2026 FC Ballers · Chicago Football Club. For ballers who create,
+            compete, and represent the city.
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ROSTER MODAL -->
+    <div id="rosterModal" class="modal">
+      <div class="modal-content">
+        <!-- Form View -->
+        <div id="rosterFormView" class="modal-form-view active">
+          <div class="modal-header">
+            <button class="modal-close" onclick="closeRosterModal()">&times;</button>
+            <h3 class="modal-headline">SQUAD PROFILES UNLOCK AFTER TRYOUTS</h3>
+            <p class="modal-subheadline">
+              Be the first to see who makes FC Ballers. Selected players will be revealed once evaluations are complete.
+            </p>
+          </div>
+          <div class="modal-body">
+            <form id="rosterNotifyForm" onsubmit="handleRosterSubmit(event)">
+              <div class="form-group">
+                <label class="form-label" for="rosterFirstName">First Name</label>
+                <input
+                  type="text"
+                  id="rosterFirstName"
+                  name="firstName"
+                  class="form-input"
+                  placeholder="Enter your first name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="rosterEmail">Email</label>
+                <input
+                  type="email"
+                  id="rosterEmail"
+                  name="email"
+                  class="form-input"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" form="rosterNotifyForm" class="modal-cta">
+              Notify Me When Rosters Are Live
+            </button>
+          </div>
+        </div>
+
+        <!-- Success View -->
+        <div id="rosterSuccessView" class="modal-success">
+          <button class="modal-close" onclick="closeRosterModal()">&times;</button>
+          <h2 class="success-headline">YOU'RE IN THE LIST</h2>
+          <p class="success-subtext">
+            We'll notify you once FC Ballers rosters are finalized and profiles go live.
+          </p>
+          <button class="modal-cta" onclick="window.location.href='/Home/Homepage.html#'">
+            Explore FC Ballers
+          </button>
+          <p class="success-footer-text">FC Ballers — Chicago Football Club</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FULL ROSTER MODAL -->
+    <div id="fullRosterModal" class="modal">
+      <div class="modal-content">
+        <!-- Form View -->
+        <div id="fullRosterFormView" class="modal-form-view active">
+          <div class="modal-header">
+            <button class="modal-close" onclick="closeFullRosterModal()">&times;</button>
+            <h3 class="modal-headline">THE SQUAD IS BUILT</h3>
+            <p class="modal-subheadline">
+              FC Ballers selects players through tryouts and evaluation. Final rosters will be released before the season begins.
+            </p>
+          </div>
+          <div class="modal-body">
+            <form id="fullRosterNotifyForm" onsubmit="handleFullRosterSubmit(event)">
+              <div class="form-group">
+                <label class="form-label" for="fullRosterFirstName">First Name</label>
+                <input
+                  type="text"
+                  id="fullRosterFirstName"
+                  name="firstName"
+                  class="form-input"
+                  placeholder="Enter your first name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fullRosterEmail">Email</label>
+                <input
+                  type="email"
+                  id="fullRosterEmail"
+                  name="email"
+                  class="form-input"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" form="fullRosterNotifyForm" class="modal-cta">
+              Get Roster Updates
+            </button>
+          </div>
+        </div>
+
+        <!-- Success View -->
+        <div id="fullRosterSuccessView" class="modal-success">
+          <button class="modal-close" onclick="closeFullRosterModal()">&times;</button>
+          <h2 class="success-headline">YOU'RE IN THE LIST</h2>
+          <p class="success-subtext">
+            We'll notify you once FC Ballers rosters are finalized and profiles go live.
+          </p>
+          <button class="modal-cta" onclick="window.location.href='/Home/Homepage.html#'">
+            Explore FC Ballers
+          </button>
+          <p class="success-footer-text">FC Ballers — Chicago Football Club</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openRosterModal(event) {
+        event.preventDefault();
+        const modal = document.getElementById("rosterModal");
+        const formView = document.getElementById("rosterFormView");
+        const successView = document.getElementById("rosterSuccessView");
+
+        // Show form view, hide success view
+        formView.classList.add("active");
+        successView.classList.remove("active");
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeRosterModal() {
+        const modal = document.getElementById("rosterModal");
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+
+        // Reset form after closing
+        setTimeout(() => {
+          const formView = document.getElementById("rosterFormView");
+          const successView = document.getElementById("rosterSuccessView");
+          formView.classList.add("active");
+          successView.classList.remove("active");
+          document.getElementById("rosterNotifyForm").reset();
+        }, 300);
+      }
+
+      function handleRosterSubmit(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const firstName = formData.get("firstName");
+        const email = formData.get("email");
+
+        console.log("Roster form submitted:", { firstName, email });
+        // You can add your form submission logic here
+
+        // Show success view
+        const formView = document.getElementById("rosterFormView");
+        const successView = document.getElementById("rosterSuccessView");
+        formView.classList.remove("active");
+        successView.classList.add("active");
+      }
+
+      function openFullRosterModal(event) {
+        event.preventDefault();
+        const modal = document.getElementById("fullRosterModal");
+        const formView = document.getElementById("fullRosterFormView");
+        const successView = document.getElementById("fullRosterSuccessView");
+
+        // Show form view, hide success view
+        formView.classList.add("active");
+        successView.classList.remove("active");
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeFullRosterModal() {
+        const modal = document.getElementById("fullRosterModal");
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+
+        // Reset form after closing
+        setTimeout(() => {
+          const formView = document.getElementById("fullRosterFormView");
+          const successView = document.getElementById("fullRosterSuccessView");
+          formView.classList.add("active");
+          successView.classList.remove("active");
+          document.getElementById("fullRosterNotifyForm").reset();
+        }, 300);
+      }
+
+      function handleFullRosterSubmit(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const firstName = formData.get("firstName");
+        const email = formData.get("email");
+
+        console.log("Full roster form submitted:", { firstName, email });
+        // You can add your form submission logic here
+
+        // Show success view
+        const formView = document.getElementById("fullRosterFormView");
+        const successView = document.getElementById("fullRosterSuccessView");
+        formView.classList.remove("active");
+        successView.classList.add("active");
+      }
+
+      // Close modal when clicking outside
+      // window.onclick = function (event) {
+      //   const rosterModal = document.getElementById("rosterModal");
+      //   const fullRosterModal = document.getElementById("fullRosterModal");
+
+      //   if (event.target === rosterModal) {
+      //     closeRosterModal();
+      //   } else if (event.target === fullRosterModal) {
+      //     closeFullRosterModal();
+      //   }
+      // };
+
+      // Close modal on ESC key
+    </script>
+  </body>
+</html>

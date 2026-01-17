@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact • FC Ballers</title>
+    <!-- Modular navbar CSS -->
+    <link rel="stylesheet" href="navbar/navbar.css" />
+
+    <style>
+      :root {
+        --blue: #0ab9ff;
+        --black: #000;
+        --white: #fff;
+        --grey: rgba(255, 255, 255, 0.75);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      body {
+        background: var(--black);
+        color: var(--white);
+        line-height: 1.6;
+      }
+      .max-width {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      section {
+        padding: 40px 0;
+        /* border-bottom: 1px solid rgba(255, 255, 255, 0.12); */
+      }
+      .hero-fade {
+        background: radial-gradient(
+            circle at top,
+            rgba(10, 185, 255, 0.3),
+            rgba(10, 185, 255, 0.1) 50%,
+            transparent 80%
+          ),
+          var(--black);
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      .section-eyebrow {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--blue);
+        margin-bottom: 6px;
+      }
+      .section-title {
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+      .section-title span {
+        color: var(--blue);
+      }
+      .section-sub {
+        font-size: 14px;
+        color: var(--grey);
+        max-width: 520px;
+        margin-bottom: 18px;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        margin-top: 16px;
+      }
+      @media (max-width: 860px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .placeholder-panel {
+        border: 1px dashed rgba(255, 255, 255, 0.35);
+        padding: 40px;
+        border-radius: 12px;
+        text-align: center;
+        color: var(--grey);
+        margin-bottom: 14px;
+      }
+
+      label {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--grey);
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        background: #000;
+        border: 1px solid var(--blue);
+        border-radius: 8px;
+        color: var(--white);
+        transition: border-color 0.2s ease;
+      }
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--blue);
+        box-shadow: 0 0 0 2px rgba(10, 185, 255, 0.2);
+      }
+      textarea {
+        resize: none;
+        height: 120px;
+      }
+
+      .btn {
+        background: var(--blue);
+        color: var(--black);
+        padding: 12px 24px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+        margin-top: 12px;
+        display: inline-block;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(10, 185, 255, 0.4);
+      }
+
+      .card {
+        border: 1px solid var(--blue);
+        border-radius: 14px;
+        padding: 16px;
+        background: #000;
+        margin-bottom: 18px;
+      }
+      .card-title {
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        margin-bottom: 6px;
+        color: var(--blue);
+      }
+      .card-body {
+        font-size: 14px;
+        color: var(--white);
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 18px 16px 26px;
+        font-size: 11px;
+        color: var(--grey);
+        text-align: center;
+      }
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 12px;
+      }
+      .footer-copyright {
+        margin-top: 4px;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 10px;
+        transition: color 0.2s ease;
+      }
+      .footer-links a:hover {
+        color: var(--blue);
+      }
+
+      /* SUCCESS MODAL */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .modal-content {
+        background: var(--black);
+        width: 90%;
+        max-width: 500px;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        animation: slideUp 0.3s ease;
+        border: 1px solid var(--blue);
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .modal-success {
+        text-align: center;
+        padding: 60px 40px;
+        position: relative;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 36px;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        line-height: 1;
+        padding: 0;
+        font-weight: 200;
+        z-index: 10;
+        opacity: 0.8;
+      }
+
+      .modal-close:hover {
+        color: var(--blue);
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      .success-headline {
+        font-size: 48px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 20px;
+        letter-spacing: -0.02em;
+      }
+
+      .success-subtext {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.6;
+        margin-bottom: 40px;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .success-footer-text {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .modal-success {
+          padding: 50px 30px;
+        }
+
+        .success-headline {
+          font-size: 36px;
+        }
+
+        .success-subtext {
+          font-size: 14px;
+          max-width: 300px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .modal-success {
+          padding: 40px 24px;
+        }
+
+        .success-headline {
+          font-size: 32px;
+        }
+
+        .success-subtext {
+          font-size: 13px;
+          margin-bottom: 30px;
+        }
+
+        .success-footer-text {
+          font-size: 10px;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        /* CSS rules for desktop screens go here */
+        footer {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: var(--black);
+          z-index: 1;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- NAV -->
+      <header class="navbar">
+        <div class="max-width navbar-container">
+          <!-- Hidden Checkbox for Mobile Toggle -->
+          <input type="checkbox" id="mobile-check" />
+
+          <!-- LEFT NAV -->
+          <div class="nav-left">
+            <div class="dropdown">
+              <button class="dropbtn">
+                About
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/About/About.html">About FC Ballers</a>
+                <a href="/Community.html">Community</a>
+                <a href="/Staff.html">Staff</a>
+                <a href="/FAQ.html">FAQ</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Teams
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Teams.html">Teams</a>
+                <a href="/Season scheduele.html">Schedule</a>
+                <a href="/Results.html">Results</a>
+              </div>
+            </div>
+
+            <a href="/Public roster.html" class="nav-link">Public Roster</a>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Join
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+                <a href="/Player resources.html">Player Resources</a>
+                <a href="/Join Movement Form.html">Newsletter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CENTER LOGO -->
+          <div class="nav-brand">
+            <a href="Home/Homepage.html">
+              <img src="Logo.png" alt="FC Ballers Logo" />
+            </a>
+          </div>
+
+          <!-- RIGHT NAV -->
+          <div class="nav-right">
+            <a href="/Merch.html" class="nav-link">Store</a>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Media
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Media and hilights.html">Media & Highlights</a>
+                <a href="/Press Kit.html">Press Kit</a>
+              </div>
+            </div>
+
+            <a href="/Contact.html" class="nav-link active">Contact</a>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Partners
+                <span class="dropdown-caret"></span>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Partners.html">Partnership Options</a>
+                <a href="/Become Partners.html">Start a Partnership</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- MOBILE HAMBURGER LABEL -->
+          <label for="mobile-check" class="hamburger-label" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <!-- MOBILE OVERLAY -->
+          <div class="mobile-nav">
+            <!-- Mobile About Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-about-check" />
+              <label for="mobile-about-check" class="mobile-dropdown-label">
+                About
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/About/About.html">About FC Ballers</a>
+                <a href="/Community.html">Community</a>
+                <a href="/Staff.html">Staff</a>
+                <a href="/FAQ.html">FAQ</a>
+              </div>
+            </div>
+
+            <!-- Mobile Teams Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-teams-check" />
+              <label for="mobile-teams-check" class="mobile-dropdown-label">
+                Teams
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Teams.html">Teams</a>
+                <a href="/Season scheduele.html">Schedule</a>
+                <a href="/Results.html">Results</a>
+              </div>
+            </div>
+
+            <a href="/Public roster.html">Roster</a>
+
+            <!-- Mobile Join Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-join-check" />
+              <label for="mobile-join-check" class="mobile-dropdown-label">
+                Join
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+                <a href="/Player resources.html">Player Resources</a>
+                <a href="/Join Movement Form.html">Newsletter</a>
+              </div>
+            </div>
+
+            <a href="/Merch.html">Store</a>
+
+            <!-- Mobile Media Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-media-check" />
+              <label for="mobile-media-check" class="mobile-dropdown-label">
+                Media
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Media and hilights.html">Media & Highlights</a>
+                <a href="/Press Kit.html">Press Kit</a>
+              </div>
+            </div>
+
+            <a href="/Contact.html">Contact</a>
+
+            <!-- Mobile Partners Dropdown -->
+            <div class="mobile-dropdown">
+              <input type="checkbox" id="mobile-partners-check" />
+              <label for="mobile-partners-check" class="mobile-dropdown-label">
+                Partners
+                <span class="mobile-dropdown-caret"></span>
+              </label>
+              <div class="mobile-dropdown-content">
+                <a href="/Partners.html">Partnership Options</a>
+                <a href="/Become Partners.html">Start a Partnership</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero-fade">
+        <div class="max-width">
+          <div class="section-eyebrow">Contact</div>
+          <h2 class="section-title">Reach Out to <span>FC Ballers</span></h2>
+          <p class="section-sub">
+            A disciplined, identity-driven Chicago football movement — open to
+            players, brands, and collaborators.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="max-width">
+          <div class="section-eyebrow">Get in touch</div>
+          <h2 class="section-title">Send a <span>Message</span></h2>
+
+          <div class="two-col">
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Your name" required />
+
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                required
+              />
+
+              <label>Message</label>
+              <textarea
+                name="message"
+                placeholder="Write your message..."
+                required
+              ></textarea>
+
+              <button type="submit" class="btn">Submit</button>
+            </form>
+
+            <div>
+              <div class="card">
+                <div class="card-title">Location</div>
+                <div class="card-body">Chicago, IL</div>
+              </div>
+
+              <!-- <div class="placeholder-panel">Future map or graphic</div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-links">
+            <a href="/Privacy policy.html">Privacy Policy</a>
+            <a href="/Terms and conditions.html">Terms & Conditions</a>
+            <a href="/Refund policy.html">Refund Policy</a>
+          </div>
+          <div class="footer-copyright">
+            © 2026 FC Ballers · Chicago Football Club. For ballers who create,
+            compete, and represent the city.
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- SUCCESS MODAL -->
+    <div id="successModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-success">
+          <button class="modal-close" onclick="closeModal()">&times;</button>
+          <h2 class="success-headline">MESSAGE SENT</h2>
+          <p class="success-subtext">
+            Thanks for reaching out. We'll get back to you as soon as possible.
+          </p>
+          <p class="success-footer-text">FC Ballers — Chicago Football Club</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const message = formData.get("message");
+
+        console.log("Form submitted:", { name, email, message });
+        // You can add your form submission logic here
+
+        // Show success modal
+        openModal();
+
+        // Reset form
+        document.getElementById("contactForm").reset();
+      }
+
+      function openModal() {
+        const modal = document.getElementById("successModal");
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("successModal");
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Close modal when clicking outside
+      // window.onclick = function (event) {
+      //   const modal = document.getElementById("successModal");
+      //   if (event.target === modal) {
+      //     closeModal();
+      //   }
+      // };
+
+      // Close modal on ESC key
+    </script>
+  </body>
+</html>

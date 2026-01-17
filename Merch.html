@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+<html style="background-color: #000" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Merch • FC Ballers</title>
+    <!-- Modular navbar CSS -->
+    <link rel="stylesheet" href="navbar/navbar.css" />
+    <style>
+      :root {
+        --blue: #0ab9ff;
+        --white: #fff;
+        --black: #000;
+        --grey: rgba(255, 255, 255, 0.75);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: var(--black);
+        color: var(--white);
+        line-height: 1.6;
+      }
+
+      .max-width {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      .hero-fade {
+        background: radial-gradient(
+            circle at top,
+            rgba(10, 185, 255, 0.3),
+            rgba(10, 185, 255, 0.1) 50%,
+            transparent 80%
+          ),
+          var(--black);
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .section-eyebrow {
+        text-transform: uppercase;
+        font-size: 11px;
+        color: var(--blue);
+        letter-spacing: 0.16em;
+        margin-bottom: 6px;
+      }
+
+      .section-title {
+        text-transform: uppercase;
+        font-size: 22px;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+
+      .section-title span {
+        color: var(--blue);
+      }
+      .section-sub {
+        font-size: 14px;
+        color: var(--grey);
+        max-width: 520px;
+        margin: 0 auto 18px;
+      }
+
+      section {
+        padding: 40px 0;
+      }
+
+      .merch-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 22px;
+        margin-top: 20px;
+      }
+
+      .card {
+        background: #050505;
+        border: 1px solid var(--blue);
+        border-radius: 14px;
+        padding: 16px;
+        text-align: center;
+        transition: box-shadow 0.2s ease;
+      }
+
+      .card:hover {
+        box-shadow: 0 4px 16px rgba(10, 185, 255, 0.2);
+      }
+
+      .item-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        background: #000000;
+      }
+      @media (min-width: 900px) {
+        .merch-grid {
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+        .item-img {
+          height: 220px;
+        }
+      }
+
+      .item-name {
+        font-size: 15px;
+        margin-bottom: 6px;
+      }
+      .item-price {
+        font-size: 14px;
+        color: var(--grey);
+        margin-bottom: 16px;
+      }
+
+      .card-actions {
+        display: flex;
+        gap: 8px;
+        flex-direction: column;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 18px;
+        background: var(--blue);
+        color: var(--black);
+        border: none;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        width: 100%;
+        text-align: center;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(10, 185, 255, 0.4);
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--blue);
+        border: 1px solid var(--blue);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(10, 185, 255, 0.1);
+        box-shadow: 0 4px 12px rgba(10, 185, 255, 0.2);
+      }
+
+      /* Success State */
+      .modal-form-view,
+      .modal-success {
+        display: none;
+      }
+
+      .modal-form-view.active,
+      .modal-success.active {
+        display: block;
+      }
+
+      .modal-success {
+        text-align: center;
+        padding: 60px 40px;
+        position: relative;
+      }
+
+      .modal-success .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      .success-headline {
+        font-size: 48px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 20px;
+        letter-spacing: -0.02em;
+      }
+
+      .success-subtext {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.6;
+        margin-bottom: 40px;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .success-footer-text {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .modal-success {
+          padding: 50px 30px;
+        }
+
+        .success-headline {
+          font-size: 36px;
+        }
+
+        .success-subtext {
+          font-size: 14px;
+          max-width: 300px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .modal-success {
+          padding: 40px 24px;
+        }
+
+        .success-headline {
+          font-size: 32px;
+        }
+
+        .success-subtext {
+          font-size: 13px;
+          margin-bottom: 30px;
+        }
+
+        .success-footer-text {
+          font-size: 10px;
+        }
+      }
+
+      footer {
+        padding: 18px 16px 26px;
+        font-size: 11px;
+        color: var(--grey);
+        text-align: center;
+      }
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 12px;
+      }
+      .footer-copyright {
+        margin-top: 4px;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 10px;
+        transition: color 0.2s ease;
+      }
+      .footer-links a:hover {
+        color: var(--blue);
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .modal-content {
+        background: var(--black);
+        width: 90%;
+        max-width: 500px;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        animation: slideUp 0.3s ease;
+        border: 1px solid var(--blue);
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .modal-header {
+        background: var(--black);
+        padding: 24px 24px 20px;
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 28px;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.2s ease;
+        line-height: 1;
+      }
+
+      .modal-close:hover {
+        color: var(--blue);
+      }
+
+      .modal-headline {
+        font-size: 22px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 8px;
+        color: var(--white);
+      }
+
+      .modal-subheadline {
+        font-size: 14px;
+        color: var(--grey);
+        line-height: 1.5;
+      }
+
+      .modal-body {
+        padding: 28px 24px;
+        background: var(--black);
+      }
+
+      .form-group {
+        margin-bottom: 18px;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--white);
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 12px 16px;
+        background: #0a0a0a;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        color: var(--white);
+        font-size: 14px;
+        transition: border-color 0.2s ease;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--blue);
+      }
+
+      .form-input::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .modal-footer {
+        background: var(--black);
+        padding: 20px 24px 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .modal-cta {
+        width: 100%;
+        padding: 14px 24px;
+        background: var(--blue);
+        color: var(--black);
+        border: none;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .modal-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(10, 185, 255, 0.4);
+      }
+
+      .modal-cta:active {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <header class="navbar">
+      <div class="max-width navbar-container">
+        <!-- Hidden Checkbox for Mobile Toggle -->
+        <input type="checkbox" id="mobile-check" />
+
+        <!-- LEFT NAV -->
+        <div class="nav-left">
+          <div class="dropdown">
+            <button class="dropbtn">
+              About
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/About/About.html">About FC Ballers</a>
+              <a href="/Community.html">Community</a>
+              <a href="/Staff.html">Staff</a>
+              <a href="/FAQ.html">FAQ</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Teams
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Teams.html">Teams</a>
+              <a href="/Season scheduele.html">Schedule</a>
+              <a href="/Results.html">Results</a>
+            </div>
+          </div>
+
+          <a href="/Public roster.html" class="nav-link">Public Roster</a>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Join
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+              <a href="/Player resources.html">Player Resources</a>
+              <a href="/Join Movement Form.html">Newsletter</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENTER LOGO -->
+        <div class="nav-brand">
+          <a href="Home/Homepage.html">
+            <img src="Logo.png" alt="FC Ballers Logo" />
+          </a>
+        </div>
+
+        <!-- RIGHT NAV -->
+        <div class="nav-right">
+          <a href="/Merch.html" class="nav-link active">Store</a>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Media
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Media and hilights.html">Media & Highlights</a>
+              <a href="/Press Kit.html">Press Kit</a>
+            </div>
+          </div>
+
+          <a href="/Contact.html" class="nav-link">Contact</a>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Partners
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Partners.html">Partnership Options</a>
+              <a href="/Become Partners.html">Start a Partnership</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOBILE HAMBURGER LABEL -->
+        <label for="mobile-check" class="hamburger-label" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <!-- MOBILE OVERLAY -->
+        <div class="mobile-nav">
+          <!-- Mobile About Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-about-check" />
+            <label for="mobile-about-check" class="mobile-dropdown-label">
+              About
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/About/About.html">About FC Ballers</a>
+              <a href="/Community.html">Community</a>
+              <a href="/Staff.html">Staff</a>
+              <a href="/FAQ.html">FAQ</a>
+            </div>
+          </div>
+
+          <!-- Mobile Teams Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-teams-check" />
+            <label for="mobile-teams-check" class="mobile-dropdown-label">
+              Teams
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Teams.html">Teams</a>
+              <a href="/Season scheduele.html">Schedule</a>
+              <a href="/Results.html">Results</a>
+            </div>
+          </div>
+
+          <a href="/Public roster.html">Roster</a>
+
+          <!-- Mobile Join Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-join-check" />
+            <label for="mobile-join-check" class="mobile-dropdown-label">
+              Join
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+              <a href="/Player resources.html">Player Resources</a>
+              <a href="/Join Movement Form.html">Newsletter</a>
+            </div>
+          </div>
+
+          <a href="/Merch.html">Store</a>
+
+          <!-- Mobile Media Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-media-check" />
+            <label for="mobile-media-check" class="mobile-dropdown-label">
+              Media
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Media and hilights.html">Media & Highlights</a>
+              <a href="/Press Kit.html">Press Kit</a>
+            </div>
+          </div>
+
+          <a href="/Contact.html">Contact</a>
+
+          <!-- Mobile Partners Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-partners-check" />
+            <label for="mobile-partners-check" class="mobile-dropdown-label">
+              Partners
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Partners.html">Partnership Options</a>
+              <a href="/Become Partners.html">Start a Partnership</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero-fade">
+      <div class="max-width">
+        <div class="section-eyebrow">Merch</div>
+        <h2 class="section-title">FC Ballers <span>Store</span></h2>
+        <p class="section-sub">
+          Official training gear, lifestyle pieces, and team essentials.
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class="max-width">
+        <div class="merch-grid">
+          <div class="card">
+            <img
+              src="Merch/Tshirt.webp"
+              alt="Baller Essentials Tee"
+              class="item-img"
+            />
+            <div class="item-name">Baller Essentials Tee</div>
+            <div class="item-price">$30.00</div>
+            <div class="card-actions">
+              <a class="btn" href="/Merch/Tshirt.webp">View Item</a>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="Merch/Hoodie.webp"
+              alt="Electric Core Hoodie"
+              class="item-img"
+            />
+            <div class="item-name">Electric Core Hoodie</div>
+            <div class="item-price">$55.00</div>
+            <div class="card-actions">
+              <a class="btn" href="/Merch/Hoodie.webp">View Item</a>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="Merch/Shorts.webp"
+              alt="Matchday Training Shorts"
+              class="item-img"
+            />
+            <div class="item-name">Matchday Training Shorts</div>
+            <div class="item-price">$30.00</div>
+            <div class="card-actions">
+              <a class="btn" href="/Merch/Shorts.webp">View Item</a>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="Merch/Joggers.webp"
+              alt="FC Ballers Performance Joggers"
+              class="item-img"
+            />
+            <div class="item-name">FC Ballers Performance Joggers</div>
+            <div class="item-price">$50.00</div>
+            <div class="card-actions">
+              <a class="btn" href="/Merch/Joggers.webp">View Item</a>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="Merch/Cap.webp"
+              alt="Signature FC Ballers Cap"
+              class="item-img"
+            />
+            <div class="item-name">Signature FC Ballers Cap</div>
+            <div class="item-price">$25.00</div>
+            <div class="card-actions">
+              <a class="btn" href="/Merch/Cap.webp">View Item</a>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="Merch/Beanie.webp"
+              alt="Winter Grind Beanie"
+              class="item-img"
+            />
+            <div class="item-name">Winter Grind Beanie</div>
+            <div class="item-price">$20.00</div>
+            <div class="card-actions">
+              <a class="btn" href="/Merch/Beanie.webp">View Item</a>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL -->
+    <div id="dropModal" class="modal">
+      <div class="modal-content">
+        <!-- Form View -->
+        <div id="formView" class="modal-form-view active">
+          <div class="modal-header">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3 class="modal-headline">FC BALLERS DROP — SEASON 1</h3>
+            <p class="modal-subheadline">
+              Official FC Ballers gear will release in limited quantities
+              following roster confirmation and season kickoff.
+            </p>
+          </div>
+          <div class="modal-body">
+            <form id="notifyForm" onsubmit="handleSubmit(event)">
+              <div class="form-group">
+                <label class="form-label" for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" form="notifyForm" class="modal-cta">
+              Notify Me When the Drop Goes Live
+            </button>
+          </div>
+        </div>
+
+        <!-- Success View -->
+        <div id="successView" class="modal-success">
+          <button class="modal-close" onclick="closeModal()">&times;</button>
+          <h2 class="success-headline">YOU'RE IN</h2>
+          <p class="success-subtext">
+            We'll notify you as soon as the Season 1 drop goes live.
+          </p>
+          <p class="success-footer-text">FC Ballers — Chicago Football Club</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="/Privacy policy.html">Privacy Policy</a>
+          <a href="/Terms and conditions.html">Terms & Conditions</a>
+          <a href="/Refund policy.html">Refund Policy</a>
+        </div>
+        <div class="footer-copyright">
+          © 2026 FC Ballers · Chicago Football Club. For ballers who create,
+          compete, and represent the city.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function openModal() {
+        const modal = document.getElementById("dropModal");
+        const formView = document.getElementById("formView");
+        const successView = document.getElementById("successView");
+
+        // Show form view, hide success view
+        formView.classList.add("active");
+        successView.classList.remove("active");
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("dropModal");
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+
+        // Reset form after closing
+        setTimeout(() => {
+          const formView = document.getElementById("formView");
+          const successView = document.getElementById("successView");
+          formView.classList.add("active");
+          successView.classList.remove("active");
+          document.getElementById("notifyForm").reset();
+        }, 300);
+      }
+
+      function handleSubmit(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const name = formData.get("name");
+        const email = formData.get("email");
+
+        console.log("Form submitted:", { name, email });
+        // You can add your form submission logic here
+
+        // Show success view
+        const formView = document.getElementById("formView");
+        const successView = document.getElementById("successView");
+        formView.classList.remove("active");
+        successView.classList.add("active");
+      }
+
+      // Close modal when clicking outside
+      // window.onclick = function (event) {
+      //   const modal = document.getElementById("dropModal");
+      //   if (event.target === modal) {
+      //     closeModal();
+      //   }
+      // };
+
+      // Close modal on ESC key
+    </script>
+  </body>
+</html>

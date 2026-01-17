@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scalable=no" />
+    <title>Terms & Conditions • FC Ballers</title>
+    <!-- Modular navbar CSS -->
+    <link rel="stylesheet" href="navbar/navbar.css" />
+
+    <style>
+      :root {
+        --blue: #0ab9ff;
+        --white: #fff;
+        --black: #000;
+        --grey: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: var(--black);
+        color: var(--white);
+        line-height: 1.6;
+      }
+
+      .max-width {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      /* HERO FADE */
+      .hero-fade {
+        background: radial-gradient(
+            circle at top,
+            rgba(10, 185, 255, 0.3),
+            rgba(10, 185, 255, 0.1) 50%,
+            transparent 80%
+          ),
+          var(--black);
+        padding: 70px 0 60px 0;
+        text-align: center;
+      }
+
+      .section-eyebrow {
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        color: var(--blue);
+        margin-bottom: 6px;
+      }
+
+      .section-title {
+        text-transform: uppercase;
+        font-size: 26px;
+        letter-spacing: 0.1em;
+        margin-bottom: 10px;
+      }
+
+      .section-title span {
+        color: var(--blue);
+      }
+
+      .section-sub {
+        font-size: 15px;
+        color: var(--grey);
+        max-width: 560px;
+        margin: 0 auto;
+      }
+
+      /* CONTENT */
+      section {
+        padding: 40px 0;
+        /* border-bottom: 1px solid rgba(255, 255, 255, 0.12); */
+      }
+
+      h2 {
+        font-size: 18px;
+        text-transform: uppercase;
+        color: var(--blue);
+        letter-spacing: 0.08em;
+        margin: 26px 0 10px 0;
+      }
+
+      p {
+        color: var(--grey);
+        margin: 10px 0;
+      }
+
+      ul {
+        margin: 12px 0 12px 26px;
+        color: var(--grey);
+      }
+
+      li {
+        margin: 6px 0;
+        color: var(--blue);
+      }
+      ul li span {
+        color: var(--white);
+        font-weight: normal;
+      }
+      ul li {
+        color: var(--blue);
+      }
+      /* FOOTER */
+      footer {
+        padding: 18px 16px 26px;
+        font-size: 11px;
+        color: var(--grey);
+        text-align: center;
+      }
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 12px;
+      }
+      .footer-copyright {
+        margin-top: 4px;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 10px;
+        transition: color 0.2s ease;
+      }
+      .footer-links a:hover {
+        color: var(--blue);
+      }
+
+      /* CTA BUTTON */
+      .terms-cta {
+        background: var(--blue);
+        color: var(--black);
+        padding: 16px 40px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: opacity 0.3s, transform 0.2s;
+        margin-top: 16px;
+      }
+
+      .terms-cta:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <header class="navbar">
+      <div class="max-width navbar-container">
+        <!-- Hidden Checkbox for Mobile Toggle -->
+        <input type="checkbox" id="mobile-check" />
+
+        <!-- LEFT NAV -->
+        <div class="nav-left">
+          <div class="dropdown">
+            <button class="dropbtn">
+              About
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/About/About.html">About FC Ballers</a>
+              <a href="/Community.html">Community</a>
+              <a href="/Staff.html">Staff</a>
+              <a href="/FAQ.html">FAQ</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Teams
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Teams.html">Teams</a>
+              <a href="/Season scheduele.html">Schedule</a>
+              <a href="/Results.html">Results</a>
+            </div>
+          </div>
+
+          <a href="/Public roster.html" class="nav-link">Public Roster</a>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Join
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+              <a href="/Player resources.html">Player Resources</a>
+              <a href="/Join Movement Form.html">Newsletter</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENTER LOGO -->
+        <div class="nav-brand">
+          <a href="Home/Homepage.html">
+            <img src="Logo.png" alt="FC Ballers Logo" />
+          </a>
+        </div>
+
+        <!-- RIGHT NAV -->
+        <div class="nav-right">
+          <a href="/Merch.html" class="nav-link">Store</a>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Media
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Media and hilights.html">Media & Highlights</a>
+              <a href="/Press Kit.html">Press Kit</a>
+            </div>
+          </div>
+
+          <a href="/Contact.html" class="nav-link">Contact</a>
+
+          <div class="dropdown">
+            <button class="dropbtn">
+              Partners
+              <span class="dropdown-caret"></span>
+            </button>
+            <div class="dropdown-content">
+              <a href="/Partners.html">Partnership Options</a>
+              <a href="/Become Partners.html">Start a Partnership</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOBILE HAMBURGER LABEL -->
+        <label for="mobile-check" class="hamburger-label" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <!-- MOBILE OVERLAY -->
+        <div class="mobile-nav">
+          <!-- Mobile About Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-about-check" />
+            <label for="mobile-about-check" class="mobile-dropdown-label">
+              About
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/About/About.html">About FC Ballers</a>
+              <a href="/Community.html">Community</a>
+              <a href="/Staff.html">Staff</a>
+              <a href="/FAQ.html">FAQ</a>
+            </div>
+          </div>
+
+          <!-- Mobile Teams Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-teams-check" />
+            <label for="mobile-teams-check" class="mobile-dropdown-label">
+              Teams
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Teams.html">Teams</a>
+              <a href="/Season scheduele.html">Schedule</a>
+              <a href="/Results.html">Results</a>
+            </div>
+          </div>
+
+          <a href="/Public roster.html">Roster</a>
+
+          <!-- Mobile Join Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-join-check" />
+            <label for="mobile-join-check" class="mobile-dropdown-label">
+              Join
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Tryouts.html">Tryouts (Men's & Women's)</a>
+              <a href="/Player resources.html">Player Resources</a>
+              <a href="/Join Movement Form.html">Newsletter</a>
+            </div>
+          </div>
+
+          <a href="/Merch.html">Store</a>
+
+          <!-- Mobile Media Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-media-check" />
+            <label for="mobile-media-check" class="mobile-dropdown-label">
+              Media
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Media and hilights.html">Media & Highlights</a>
+              <a href="/Press Kit.html">Press Kit</a>
+            </div>
+          </div>
+
+          <a href="/Contact.html">Contact</a>
+
+          <!-- Mobile Partners Dropdown -->
+          <div class="mobile-dropdown">
+            <input type="checkbox" id="mobile-partners-check" />
+            <label for="mobile-partners-check" class="mobile-dropdown-label">
+              Partners
+              <span class="mobile-dropdown-caret"></span>
+            </label>
+            <div class="mobile-dropdown-content">
+              <a href="/Partners.html">Partnership Options</a>
+              <a href="/Become Partners.html">Start a Partnership</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-fade">
+      <div class="max-width">
+        <div class="section-eyebrow">Terms</div>
+        <h1 class="section-title">Terms & <span>Conditions</span></h1>
+        <p class="section-sub">
+          The rules, policies, and expectations for using our website and
+          participating in FC Ballers programs.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section>
+      <div class="max-width">
+        <p>
+          By accessing and using the FC Ballers website (“Site”) or
+          participating in any FC Ballers programs, tryouts, events, or
+          merchandise sales (“Services”), you agree to these Terms & Conditions
+          (“Terms”). Please read them carefully. If you do not agree, you should
+          not use our Services.
+        </p>
+
+        <h2>1. Use of Website</h2>
+        <p>You may use our Site for lawful purposes only. You agree not to:</p>
+        <ul>
+          <li><span>Engage in fraudulent or harmful activity</span></li>
+          <li><span>Attempt to interfere with website operations</span></li>
+          <li><span>Use FC Ballers content without permission</span></li>
+        </ul>
+
+        <h2>2. Tryout Registration</h2>
+        <p>When you register for FC Ballers tryouts:</p>
+        <ul>
+          <li>
+            <span>You agree that all information provided is accurate</span>
+          </li>
+          <li>
+            <span
+              >You acknowledge that
+              <strong>tryout fees are non‑refundable</strong></span
+            >
+          </li>
+          <li>
+            <span
+              >You understand that paying the fee does not guarantee selection
+              to the team</span
+            >
+          </li>
+          <li>
+            <span
+              >You will receive a confirmation email after successful
+              payment</span
+            >
+          </li>
+        </ul>
+
+        <h2>3. Merchandise Purchases</h2>
+        <p>
+          Merch purchases made through our website are subject to product
+          availability. Payments are processed securely by third‑party providers
+          (Stripe, PayPal). You agree to:
+        </p>
+        <ul>
+          <li>
+            <span>Provide accurate shipping and billing information</span>
+          </li>
+          <li><span>Understand that shipping times may vary</span></li>
+          <li>
+            <span>Review sizing and product descriptions before purchase</span>
+          </li>
+        </ul>
+
+        <h2>4. Refunds & Cancellations</h2>
+        <p>Our refund policies are as follows:</p>
+        <ul>
+          <li>
+            <span><strong>Tryout fees:</strong> Non‑refundable</span>
+          </li>
+          <li>
+            <span
+              ><strong>Merch items:</strong> Refunds or exchanges may be
+              available on unworn items unless otherwise stated</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>Digital products:</strong> Non‑refundable once
+              delivered</span
+            >
+          </li>
+        </ul>
+
+        <h2>5. Participation & Conduct</h2>
+        <p>By participating in FC Ballers events or training:</p>
+        <ul>
+          <li>
+            <span>You agree to follow staff instructions and team rules</span>
+          </li>
+          <li>
+            <span
+              >You acknowledge that soccer is a physical sport involving
+              inherent risk</span
+            >
+          </li>
+          <li>
+            <span
+              >You agree to behave respectfully toward staff, players, and
+              referees</span
+            >
+          </li>
+        </ul>
+
+        <h2>6. Intellectual Property</h2>
+        <p>
+          All FC Ballers logos, designs, graphics, and website content are the
+          property of FC Ballers. You may not copy, modify, or distribute any
+          materials without written permission.
+        </p>
+
+        <h2>7. Privacy Policy</h2>
+        <p>
+          Your use of our Site is also governed by our Privacy Policy. By using
+          our Services, you acknowledge that you have read and agree to that
+          policy.
+        </p>
+
+        <h2>8. Limitation of Liability</h2>
+        <p>
+          FC Ballers is not responsible for injuries, damages, or losses
+          resulting from participation in tryouts, team activities, or misuse of
+          our website. All participation is voluntary and at your own risk.
+        </p>
+
+        <h2>9. Changes to Terms</h2>
+        <p>
+          We may update these Terms at any time. Updated versions will be posted
+          on this page with a new revision date.
+        </p>
+
+        <h2>10. Contact Us</h2>
+        <p>If you have questions about these Terms, please contact:</p>
+        <div style="text-align: center; margin-top: 24px">
+          <a href="mailto:FCBallers.Chi@gmail.com" class="terms-cta">
+            Terms Questions
+          </a>
+        </div>
+      </div>
+    </section>
+  </body>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="/Privacy policy.html">Privacy Policy</a>
+        <a href="/Terms and conditions.html">Terms & Conditions</a>
+        <a href="/Refund policy.html">Refund Policy</a>
+      </div>
+      <div class="footer-copyright">
+        © 2026 FC Ballers · Chicago Football Club. For ballers who create,
+        compete, and represent the city.
+      </div>
+    </div>
+  </footer>
+</html>
