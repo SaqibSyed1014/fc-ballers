@@ -1,3 +1,19 @@
+@import url(https://db.onlinewebfonts.com/c/deb155a75b6db277fb70490b49eb6db8?family=InkstonCasualBold);
+
+@font-face {
+    font-family: "InkstonCasualBold";
+    src: url("https://db.onlinewebfonts.com/t/deb155a75b6db277fb70490b49eb6db8.eot");
+    src: url("https://db.onlinewebfonts.com/t/deb155a75b6db277fb70490b49eb6db8.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/deb155a75b6db277fb70490b49eb6db8.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/deb155a75b6db277fb70490b49eb6db8.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/deb155a75b6db277fb70490b49eb6db8.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/deb155a75b6db277fb70490b49eb6db8.svg#InkstonCasualBold")format("svg");
+}
+
+.hero-title, .hero-title span, .section-title, .section-title span {
+    font-family: "InkstonCasualBold";
+}
+
 .hero-fade {
     background: radial-gradient(
             circle at top,
