@@ -56,6 +56,11 @@ a {
     background-position: center 40%;
   }
 }
+@media (min-width: 1440px) {
+  .hero {
+    background-position: center 55%;
+  }
+}
 .hero-inner {
   display: grid;
   grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
@@ -227,7 +232,7 @@ section {
 }
 .why-body {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--white);
 }
 
 /* WHAT IS FC BALLERS */
@@ -394,7 +399,7 @@ ul li span {
 }
 .match-meta {
   font-size: 12px;
-  color: var(--grey);
+  color: var(--white);
 }
 
 /* INVESTMENT STRIPE */
@@ -416,7 +421,7 @@ ul li span {
 }
 .stripe-text {
   font-size: 13px;
-  color: var(--grey);
+  color: var(--white);
 }
 .stripe-text strong {
   color: var(--white);

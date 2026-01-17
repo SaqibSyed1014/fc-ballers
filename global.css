@@ -45,3 +45,12 @@ section h2 span {
 .text-blue{ color: var(--blue); }
 
 .section-eyebrow{ display: none; }
+
+.hero-sub,
+.hero-panel-line,
+.tag-pill,
+.section-sub,
+.footer-links a,
+.footer-copyright {
+    color: var(--white);
+}
