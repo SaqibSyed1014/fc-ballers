@@ -585,9 +585,21 @@
           Join the FC Ballers community to stay updated on tryouts, teams, and
           announcements — or reach out directly.
         </p>
-        <button class="modal-cta-btn" onclick="openCommunityForm()">
-          JOIN THE COMMUNITY
-        </button>
+        <form id="communityForm" onsubmit="handleSubmit(event)">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Your name" required />
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+          />
+          <button type="submit" class="btn">JOIN THE COMMUNITY</button>
+        </form>
+<!--         <button class="modal-cta-btn" onclick="openCommunityForm()"> -->
+<!--           JOIN THE COMMUNITY -->
+<!--         </button> -->
       </div>
     </div>
 
@@ -633,7 +645,7 @@
         </p>
         <button
           class="success-cta"
-          onclick="closeSuccessModal(); window.location.href='/Home/Homepage.html';"
+          onclick="closeSuccessModal(); window.location.href='index.html';"
         >
           EXPLORE FC BALLERS
         </button>

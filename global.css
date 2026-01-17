@@ -43,3 +43,5 @@ section h2 span {
 }
 
 .text-blue{ color: var(--blue); }
+
+.section-eyebrow{ display: none; }
