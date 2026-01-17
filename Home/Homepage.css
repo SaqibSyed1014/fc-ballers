@@ -2,7 +2,7 @@
   --blue: #0ab9ff;
   --black: #000000;
   --white: #ffffff;
-  --grey: #ffffff;
+  --white: #ffffff;
 }
 * {
   margin: 0;
@@ -58,7 +58,7 @@ a {
 }
 @media (min-width: 1440px) {
   .hero {
-    background-position: center 52%;
+    background-position: center 50%;
   }
 }
 .hero-inner {
@@ -77,7 +77,7 @@ a {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--grey);
+  color: var(--white);
   margin-bottom: 10px;
 }
 .hero-title {
@@ -92,7 +92,7 @@ a {
 }
 .hero-sub {
   font-size: 14px;
-  color: var(--grey);
+  color: var(--white);
   max-width: 440px;
   margin-bottom: 18px;
 }
@@ -104,12 +104,13 @@ a {
 }
 .tag-pill {
   border-radius: 999px;
+  font-weight: bold;
   border: 1px solid var(--blue);
   padding: 5px 11px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--grey);
+  color: var(--white);
 }
 .hero-ctas {
   display: flex;
@@ -155,7 +156,7 @@ a {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--grey);
+  color: var(--white);
   margin-bottom: 10px;
 }
 .hero-panel-main {
@@ -165,12 +166,12 @@ a {
 }
 .hero-panel-sub {
   font-size: 12px;
-  color: var(--grey);
+  color: var(--white);
   margin-bottom: 10px;
 }
 .hero-panel-line {
   font-size: 12px;
-  color: var(--grey);
+  color: var(--white);
 }
 
 /* SECTIONS */
@@ -181,7 +182,7 @@ section {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--grey);
+  color: var(--white);
   margin-bottom: 6px;
 }
 .section-title {
@@ -195,7 +196,7 @@ section {
 }
 .section-sub {
   font-size: 14px;
-  color: var(--grey);
+  color: var(--white);
   max-width: 520px;
   margin-bottom: 18px;
 }
@@ -284,18 +285,19 @@ section {
 }
 .highlight-meta {
   font-size: 12px;
-  color: var(--grey);
+  color: var(--white);
   text-transform: uppercase;
   letter-spacing: 0.16em;
 }
 .highlight-main {
   font-size: 18px;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 .highlight-sub {
   font-size: 13px;
-  color: var(--grey);
+  color: var(--white);
 }
 .highlight-tagline {
   font-size: 12px;
@@ -355,7 +357,7 @@ ul li span {
 }
 .player-label {
   font-size: 11px;
-  color: var(--grey);
+  color: var(--white);
   text-transform: uppercase;
   letter-spacing: 0.16em;
 }
@@ -466,7 +468,7 @@ ul li span {
 footer {
   padding: 18px 16px 26px;
   font-size: 11px;
-  color: var(--grey);
+  color: var(--white);
   text-align: center;
 }
 
@@ -597,7 +599,7 @@ footer {
 
 .modal-subheadline {
   font-size: 14px;
-  color: var(--grey);
+  color: var(--white);
   line-height: 1.5;
 }
 
