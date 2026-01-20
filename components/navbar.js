@@ -122,7 +122,7 @@ navElement.innerHTML = `
                   </div>
                 </div>
     
-                <a href="/Public roster.html">Roster</a>
+                <a href="Public roster.html">Roster</a>
     
                 <!-- Mobile Join Dropdown -->
                 <div class="mobile-dropdown">
@@ -138,7 +138,7 @@ navElement.innerHTML = `
                   </div>
                 </div>
     
-                <a href="/Merch.html">Store</a>
+                <a href="Merch.html">Store</a>
     
                 <!-- Mobile Media Dropdown -->
                 <div class="mobile-dropdown">
