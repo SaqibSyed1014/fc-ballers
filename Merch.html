@@ -176,7 +176,7 @@
         position: relative;
       }
 
-      .modal-success .modal-close {
+      .modal-success .modal-close, .close-viewer {
         position: absolute;
         top: 20px;
         right: 20px;
@@ -333,7 +333,7 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      .modal-close {
+      .modal-close, .close-viewer {
         position: absolute;
         top: 20px;
         right: 20px;
@@ -351,7 +351,7 @@
         line-height: 1;
       }
 
-      .modal-close:hover {
+      .modal-close:hover, .close-viewer:hover {
         color: var(--blue);
       }
 
@@ -435,6 +435,28 @@
       .modal-cta:active {
         transform: translateY(0);
       }
+      .image-viewer-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 1);
+          z-index: 99999;
+          justify-content: center;
+          align-items: center;
+          cursor: zoom-out;
+      }
+
+      .image-viewer-overlay img {
+          max-width: 90%;
+          max-height: 85%;
+          border-radius: 8px;
+          box-shadow: 0 0 20px rgba(0,0,0,0.5);
+          object-fit: contain;
+      }
+
     </style>
 
     <script src="components/navbar.js" type="text/javascript" defer></script>
@@ -469,7 +491,7 @@
             <div class="item-name">Baller Essentials Tee</div>
             <div class="item-price">$30.00</div>
             <div class="card-actions">
-              <a class="btn" href="Merch/Tshirt.webp">View Item</a>
+              <div class="btn view-image">View Item</div>
               <button class="btn btn-secondary" onclick="openModal()">
                 Drop Announcing Soon
               </button>
@@ -485,7 +507,7 @@
             <div class="item-name">Electric Core Hoodie</div>
             <div class="item-price">$55.00</div>
             <div class="card-actions">
-              <a class="btn" href="Merch/Hoodie.webp">View Item</a>
+              <div class="btn view-image">View Item</div>
               <button class="btn btn-secondary" onclick="openModal()">
                 Drop Announcing Soon
               </button>
@@ -501,7 +523,7 @@
             <div class="item-name">Matchday Training Shorts</div>
             <div class="item-price">$30.00</div>
             <div class="card-actions">
-              <a class="btn" href="Merch/Shorts.webp">View Item</a>
+              <div class="btn view-image">View Item</div>
               <button class="btn btn-secondary" onclick="openModal()">
                 Drop Announcing Soon
               </button>
@@ -517,7 +539,7 @@
             <div class="item-name">FC Ballers Performance Joggers</div>
             <div class="item-price">$50.00</div>
             <div class="card-actions">
-              <a class="btn" href="Merch/Joggers.webp">View Item</a>
+              <div class="btn view-image">View Item</div>
               <button class="btn btn-secondary" onclick="openModal()">
                 Drop Announcing Soon
               </button>
@@ -533,7 +555,7 @@
             <div class="item-name">Signature FC Ballers Cap</div>
             <div class="item-price">$25.00</div>
             <div class="card-actions">
-              <a class="btn" href="Merch/Cap.webp">View Item</a>
+              <div class="btn view-image">View Item</div>
               <button class="btn btn-secondary" onclick="openModal()">
                 Drop Announcing Soon
               </button>
@@ -549,7 +571,7 @@
             <div class="item-name">Winter Grind Beanie</div>
             <div class="item-price">$20.00</div>
             <div class="card-actions">
-              <a class="btn" href="Merch/Beanie.webp">View Item</a>
+              <div class="btn view-image">View Item</div>
               <button class="btn btn-secondary" onclick="openModal()">
                 Drop Announcing Soon
               </button>
@@ -631,6 +653,52 @@
         </div>
       </div>
     </footer>
+
+
+<div id="imageViewer" class="image-viewer-overlay">
+    <span class="close-viewer">&times;</span>
+    <img id="fullResImage" src="" alt="Full Resolution">
+</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewer = document.getElementById('imageViewer');
+            const fullImg = document.getElementById('fullResImage');
+            const closeBtn = document.querySelector('.close-viewer');
+            const viewButtons = document.querySelectorAll('.view-image');
+
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.card');
+                    const cardImage = card.querySelector('.item-img');
+
+                    if (cardImage) {
+                        const imageSrc = cardImage.getAttribute('src');
+
+                        fullImg.src = imageSrc;
+                        viewer.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            const closeViewer = () => {
+                viewer.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                fullImg.src = "";
+            };
+
+            closeBtn.addEventListener('click', closeViewer);
+
+            viewer.addEventListener('click', (e) => {
+                if (e.target === viewer) closeViewer();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape") closeViewer();
+            });
+        });
+    </script>
 
     <script>
       function openModal() {
