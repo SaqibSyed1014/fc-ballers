@@ -222,7 +222,7 @@ section {
   border-radius: 14px;
   border: 1px solid var(--blue);
   padding: 14px 14px 16px;
-  background: #020202;
+  background: black;
 }
 .why-title {
   font-size: 13px;
