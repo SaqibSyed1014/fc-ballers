@@ -173,7 +173,7 @@
 
       .modal.active {
         display: flex;
-        animation: fadeIn 0.3s ease;
+/*         animation: fadeIn 0.3s ease; */
       }
 
       @keyframes fadeIn {
@@ -581,8 +581,8 @@
         console.log("Form submitted:", { name, email });
 
         // Close form modal and show success modal
-        closeModal();
         document.getElementById("successModal").classList.add("active");
+        closeModal();
 
         // Reset form
         event.target.reset();
