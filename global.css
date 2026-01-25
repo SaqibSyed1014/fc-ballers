@@ -58,3 +58,7 @@ section h2 span,
 .footer-copyright {
     color: var(--white);
 }
+
+#nav {
+    height: 72px;
+}
