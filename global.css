@@ -22,7 +22,11 @@
 .section-title,
 .section-title span,
 section h2,
-section h2 span {
+section h2 span,
+.modal-headline,
+.success-headline,
+.modal-headline span,
+.success-headline span {
     font-family: "InkstonCasualBold";
 }
 .hero-title{
