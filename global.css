@@ -243,6 +243,17 @@ section h2 span,
     backdrop-filter 0.2s ease;
 }
 
+@media (min-width: 900px) and (max-width: 1220px) {
+    .dropdown-content.is-on-left {
+        left: 0;
+        transform: translateX(0) translateY(0) !important;
+    }
+    .dropdown-content.is-on-right {
+        left: -100%;
+        transform: translateX(0) translateY(0) !important;
+    }
+}
+
 .dropdown-content a {
     color: rgba(255, 255, 255, 0.75);
     padding: 12px 20px;

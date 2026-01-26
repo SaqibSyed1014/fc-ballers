@@ -13,7 +13,7 @@ navElement.innerHTML = `
                     About
                     <span class="dropdown-caret"></span>
                   </button>
-                <div class="dropdown-content">
+                <div class="dropdown-content is-on-left">
                   <a href="About.html">About FC Ballers</a>
                   <a href="Community.html">Community</a>
                   <a href="Staff.html">Staff</a>
@@ -77,7 +77,7 @@ navElement.innerHTML = `
                   Partners
                   <span class="dropdown-caret"></span>
                 </button>
-                <div class="dropdown-content">
+                <div class="dropdown-content is-on-right">
                   <a href="Partners.html">Partnership Options</a>
                   <a href="Become Partners.html">Start a Partnership</a>
                 </div>
