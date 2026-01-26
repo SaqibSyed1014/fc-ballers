@@ -51,7 +51,7 @@ navElement.innerHTML = `
               <!-- CENTER LOGO -->
               <div class="nav-brand">
                 <a href="index.html">
-                  <img src="Logo.png" alt="FC Ballers Logo" />
+                  <img src="Logo.webp" alt="FC Ballers Logo" />
                 </a>
               </div>
     
