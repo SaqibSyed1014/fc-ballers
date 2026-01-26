@@ -58,7 +58,8 @@ a {
 }
 @media (min-width: 1440px) {
   .hero {
-    background-position: center 40%;
+    padding: 220px 0;
+    background-position: center 45%;
   }
 }
 .hero-inner {
