@@ -456,6 +456,12 @@
           object-fit: contain;
       }
 
+      #fullResImage {
+          will-change: transform;
+          backface-visibility: hidden;
+          transform: translateZ(0);
+      }
+
     </style>
 
 
@@ -667,8 +673,13 @@
             const closeBtn = document.querySelector('.close-viewer');
             const viewButtons = document.querySelectorAll('.view-image');
 
+            let isViewerOpen = false;
+
             viewButtons.forEach(button => {
                 button.addEventListener('click', function() {
+                    if (isViewerOpen) return;
+                    isViewerOpen = true;
+
                     const card = this.closest('.card');
                     const cardImage = card.querySelector('.item-img');
 
@@ -687,6 +698,10 @@
                 document.body.style.overflow = 'auto';
                 fullImg.removeAttribute('src');
                 fullImg.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+                setTimeout(() => {
+                    isViewerOpen = false;
+                  }, 300);
             };
 
             closeBtn.addEventListener('click', closeViewer);
