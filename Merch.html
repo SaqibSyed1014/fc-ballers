@@ -685,7 +685,8 @@
             const closeViewer = () => {
                 viewer.style.display = 'none';
                 document.body.style.overflow = 'auto';
-                fullImg.src = "";
+                fullImg.removeAttribute('src');
+                fullImg.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
             };
 
             closeBtn.addEventListener('click', closeViewer);
