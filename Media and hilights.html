@@ -344,15 +344,15 @@
       }
 
       /* Success State */
-      .modal-form-view,
-      .modal-success {
-        display: none;
-      }
+/*       .modal-form-view, */
+/*       .modal-success { */
+/*         display: none; */
+/*       } */
 
-      .modal-form-view.active,
-      .modal-success.active {
-        display: block;
-      }
+/*       .modal-form-view.active, */
+/*       .modal-success.active { */
+/*         display: block; */
+/*       } */
 
       .modal-success {
         text-align: center;
@@ -527,6 +527,9 @@
           </div>
           <div class="modal-body">
             <form id="mediaNotifyForm" onsubmit="handleFormSubmit(event, 'mediaSuccessModal', 'mediaModal')">
+              <input type="hidden" name="access_key" value="e2aed086-03b7-4923-b6bf-a54f444f5398">
+              <input type="checkbox" name="botcheck" id="" style="display: none;">
+
               <div class="form-group">
                 <label class="form-label" for="name">Name</label>
                 <input

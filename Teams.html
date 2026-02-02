@@ -645,8 +645,8 @@
           Get notified when FC Ballers rosters, tryouts, and new teams are
           announced — including future Men's, Women's, and Youth programs.
         </p>
-        <form id="teamsForm" onsubmit="handleFormSubmit(event, 'successModal', 'teamsForm')">
-          <input type="hidden" name="access_key" value="284af3a4-a5cb-4028-b152-e6e32de2702e">
+        <form id="teamsForm" onsubmit="handleFormSubmit(event, 'successModal', 'teamsModal')">
+          <input type="hidden" name="access_key" value="7a19c32f-f944-4d2e-9931-d7e1e0eb02f">
           <input type="checkbox" name="botcheck" id="" style="display: none;">
 
           <label>Name</label>
@@ -705,34 +705,32 @@
 
     <script>
       function openModal() {
-        document.getElementById("teamsModal").classList.add("active");
+        document.getElementById("teamsModal").style.display = 'flex';
       }
 
       function closeModal() {
-        document.getElementById("teamsModal").classList.remove("active");
+        document.getElementById("teamsModal").style.display = 'none';
       }
 
       function closeSuccessModal() {
-        document.getElementById("successModal").classList.remove("active");
+        document.getElementById("successModal").style.display = 'none';
       }
 
-      function handleSubmit(event) {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const name = formData.get("name");
-        const email = formData.get("email");
-
-        // Here you would typically send the data to a server
-        // For now, we'll just show the success modal
-        console.log("Form submitted:", { name, email });
-
-        // Close form modal and show success modal
-        closeModal();
-        document.getElementById("successModal").classList.add("active");
-
-        // Reset form
-        event.target.reset();
-      }
+//       function handleSubmit(event) {
+//         event.preventDefault();
+//         const formData = new FormData(event.target);
+//         const name = formData.get("name");
+//         const email = formData.get("email");
+//
+//         console.log("Form submitted:", { name, email });
+//
+//         // Close form modal and show success modal
+//         closeModal();
+//         document.getElementById("successModal").style.display = 'flex';
+//
+//         // Reset form
+//         event.target.reset();
+//       }
 
       // Close modals when clicking outside
       // window.onclick = function (event) {
