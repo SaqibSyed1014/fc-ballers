@@ -486,7 +486,7 @@
             </p>
           </div>
           <div class="modal-body">
-            <form id="tryoutProgressForm" onsubmit="handleFormSubmit(event, 'tryoutProgressSuccessModal', 'tryoutProgressForm')">
+            <form id="tryoutProgressForm" onsubmit="handleFormSubmit(event, 'tryoutProgressSuccessModal', 'tryoutProgressModal')">
               <input type="hidden" name="access_key" value="fe5f3296-5a03-478e-82ab-04a4cf7a0a57">
               <input type="checkbox" name="botcheck" id="" style="display: none;">
 
@@ -580,6 +580,7 @@
         const successModal = document.getElementById("tryoutProgressSuccessModal");
         successModal.style.display = 'none';
         document.body.style.overflow = "";
+        document.getElementById("tryoutProgressForm").reset();
 //
 //         // Reset form after closing
 //         setTimeout(() => {

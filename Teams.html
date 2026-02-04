@@ -666,7 +666,7 @@
     <!-- SUCCESS MODAL -->
     <div id="successModal" class="modal">
       <div class="modal-content modal-success">
-        <button class="modal-close" onclick="closeSuccessModal()">
+        <button class="modal-close" onclick="closeModal()">
           &times;
         </button>
         <h2 class="success-headline">YOU'RE <span class="text-blue">IN</span></h2>
@@ -675,7 +675,7 @@
         </p>
         <button
           class="success-cta"
-          onclick="closeSuccessModal(); window.location.href='index.html';"
+          onclick="closeModal(); window.location.href='index.html';"
         >
           EXPLORE FC BALLERS
         </button>
@@ -710,10 +710,8 @@
 
       function closeModal() {
         document.getElementById("teamsModal").style.display = 'none';
-      }
-
-      function closeSuccessModal() {
         document.getElementById("successModal").style.display = 'none';
+        document.getElementById("teamsForm").reset();
       }
 
 //       function handleSubmit(event) {
