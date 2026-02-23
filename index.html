@@ -325,8 +325,7 @@
     <!-- ROSTER MODAL -->
     <div id="rosterModal" class="modal">
       <div class="modal-content">
-        <!-- Form View -->
-        <div id="rosterFormView" class="modal-form-view active">
+        <div class="modal-form-view">
           <div class="modal-header">
             <button class="modal-close" onclick="closeRosterModal()">&times;</button>
             <h3 class="modal-headline">SQUAD PROFILES UNLOCK AFTER <span class="text-blue">TRYOUTS</span></h3>
@@ -335,7 +334,10 @@
             </p>
           </div>
           <div class="modal-body">
-            <form id="rosterNotifyForm" onsubmit="handleRosterSubmit(event)">
+            <form id="rosterNotifyForm" onsubmit="handleFormSubmit(event, 'rosterSuccessModal', 'rosterModal')">
+              <input type="hidden" name="access_key" value="b7b5d7b5-d10c-41e4-abcb-13e4a5a74be2">
+              <input type="checkbox" name="botcheck" id="" style="display: none;">
+
               <div class="form-group">
                 <label class="form-label" for="rosterFirstName">First Name</label>
                 <input
@@ -366,9 +368,13 @@
             </button>
           </div>
         </div>
+      </div>
+    </div>
 
-        <!-- Success View -->
-        <div id="rosterSuccessView" class="modal-success">
+    <!-- ROSTER SUCCESS MODAL -->
+    <div id="rosterSuccessModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-success">
           <button class="modal-close" onclick="closeRosterModal()">&times;</button>
           <h2 class="success-headline">YOU'RE IN THE LIST</h2>
           <p class="success-subtext">
@@ -385,8 +391,7 @@
     <!-- FULL ROSTER MODAL -->
     <div id="fullRosterModal" class="modal">
       <div class="modal-content">
-        <!-- Form View -->
-        <div id="fullRosterFormView" class="modal-form-view active">
+        <div class="modal-form-view">
           <div class="modal-header">
             <button class="modal-close" onclick="closeFullRosterModal()">&times;</button>
             <h3 class="modal-headline">THE SQUAD IS <span class="text-blue">BUILT</span></h3>
@@ -395,7 +400,9 @@
             </p>
           </div>
           <div class="modal-body">
-            <form id="fullRosterNotifyForm" onsubmit="handleFullRosterSubmit(event)">
+            <form id="fullRosterNotifyForm" onsubmit="handleFormSubmit(event, 'fullRosterSuccessModal', 'fullRosterModal')">
+              <input type="hidden" name="access_key" value="64da07fc-3506-4781-9f21-b3824fdb56b3">
+              <input type="checkbox" name="botcheck" id="" style="display: none;">
               <div class="form-group">
                 <label class="form-label" for="fullRosterFirstName">First Name</label>
                 <input
@@ -426,9 +433,13 @@
             </button>
           </div>
         </div>
+      </div>
+    </div>
 
-        <!-- Success View -->
-        <div id="fullRosterSuccessView" class="modal-success">
+    <!-- FULL ROSTER SUCCESS MODAL -->
+    <div id="fullRosterSuccessModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-success">
           <button class="modal-close" onclick="closeFullRosterModal()">&times;</button>
           <h2 class="success-headline">YOU'RE IN THE LIST</h2>
           <p class="success-subtext">
@@ -442,110 +453,40 @@
       </div>
     </div>
 
+    <script src="scripts/web3form.js" type="text/javascript"></script>
+
     <script>
       function openRosterModal(event) {
         event.preventDefault();
         const modal = document.getElementById("rosterModal");
-        const formView = document.getElementById("rosterFormView");
-        const successView = document.getElementById("rosterSuccessView");
-
-        // Show form view, hide success view
-        formView.classList.add("active");
-        successView.classList.remove("active");
-
-        modal.classList.add("active");
+        modal.style.display = "flex";
         document.body.style.overflow = "hidden";
       }
 
       function closeRosterModal() {
-        const modal = document.getElementById("rosterModal");
-        modal.classList.remove("active");
+        const rosterModal = document.getElementById("rosterModal");
+        const rosterSuccessModal = document.getElementById("rosterSuccessModal");
+        rosterModal.style.display = "none";
+        rosterSuccessModal.style.display = "none";
         document.body.style.overflow = "";
-
-        // Reset form after closing
-        setTimeout(() => {
-          const formView = document.getElementById("rosterFormView");
-          const successView = document.getElementById("rosterSuccessView");
-          formView.classList.add("active");
-          successView.classList.remove("active");
-          document.getElementById("rosterNotifyForm").reset();
-        }, 300);
-      }
-
-      function handleRosterSubmit(event) {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const firstName = formData.get("firstName");
-        const email = formData.get("email");
-
-        console.log("Roster form submitted:", { firstName, email });
-        // You can add your form submission logic here
-
-        // Show success view
-        const formView = document.getElementById("rosterFormView");
-        const successView = document.getElementById("rosterSuccessView");
-        formView.classList.remove("active");
-        successView.classList.add("active");
+        document.getElementById("rosterNotifyForm").reset();
       }
 
       function openFullRosterModal(event) {
         event.preventDefault();
         const modal = document.getElementById("fullRosterModal");
-        const formView = document.getElementById("fullRosterFormView");
-        const successView = document.getElementById("fullRosterSuccessView");
-
-        // Show form view, hide success view
-        formView.classList.add("active");
-        successView.classList.remove("active");
-
-        modal.classList.add("active");
+        modal.style.display = "flex";
         document.body.style.overflow = "hidden";
       }
 
       function closeFullRosterModal() {
-        const modal = document.getElementById("fullRosterModal");
-        modal.classList.remove("active");
+        const fullRosterModal = document.getElementById("fullRosterModal");
+        const fullRosterSuccessModal = document.getElementById("fullRosterSuccessModal");
+        fullRosterModal.style.display = "none";
+        fullRosterSuccessModal.style.display = "none";
         document.body.style.overflow = "";
-
-        // Reset form after closing
-        setTimeout(() => {
-          const formView = document.getElementById("fullRosterFormView");
-          const successView = document.getElementById("fullRosterSuccessView");
-          formView.classList.add("active");
-          successView.classList.remove("active");
-          document.getElementById("fullRosterNotifyForm").reset();
-        }, 300);
+        document.getElementById("fullRosterNotifyForm").reset();
       }
-
-      function handleFullRosterSubmit(event) {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const firstName = formData.get("firstName");
-        const email = formData.get("email");
-
-        console.log("Full roster form submitted:", { firstName, email });
-        // You can add your form submission logic here
-
-        // Show success view
-        const formView = document.getElementById("fullRosterFormView");
-        const successView = document.getElementById("fullRosterSuccessView");
-        formView.classList.remove("active");
-        successView.classList.add("active");
-      }
-
-      // Close modal when clicking outside
-      // window.onclick = function (event) {
-      //   const rosterModal = document.getElementById("rosterModal");
-      //   const fullRosterModal = document.getElementById("fullRosterModal");
-
-      //   if (event.target === rosterModal) {
-      //     closeRosterModal();
-      //   } else if (event.target === fullRosterModal) {
-      //     closeFullRosterModal();
-      //   }
-      // };
-
-      // Close modal on ESC key
     </script>
   </body>
 </html>

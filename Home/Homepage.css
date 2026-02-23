@@ -521,6 +521,8 @@ footer {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   animation: fadeIn 0.3s ease;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal.active {
@@ -669,17 +671,6 @@ footer {
 
 .modal-cta:active {
   transform: translateY(0);
-}
-
-/* Success State */
-.modal-form-view,
-.modal-success {
-  display: none;
-}
-
-.modal-form-view.active,
-.modal-success.active {
-  display: block;
 }
 
 .modal-success {
