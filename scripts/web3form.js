@@ -4,6 +4,8 @@
  * @param {String} successPopupId - Optional: function to run on success (like opening your popup)
  * @param {String} activePopupId - Optional: function to run on success (like opening your popup)
  */
+
+
 function handleFormSubmit(event, successPopupId, activePopupId) {
     event.preventDefault();
 
