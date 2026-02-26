@@ -9,6 +9,18 @@ function handleFormSubmit(event, successPopupId, activePopupId) {
 
     const form = event.target;
 
+    let submitBtn = form.querySelector('button[type="submit"]');
+    if (!submitBtn) {
+        submitBtn = document.querySelector(`button[form="${form.id}"]`);
+    }
+    const originalBtnHTML = submitBtn.innerHTML;
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `
+        <span class="spinner"></span>
+        Submitting
+    `;
+
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -35,4 +47,8 @@ function handleFormSubmit(event, successPopupId, activePopupId) {
         .catch(error => {
             console.error("Form Error:", error);
         })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHTML;
+        });
 }

@@ -605,7 +605,7 @@
     <!-- COMMUNITY FORM MODAL -->
     <div id="communityFormModal" class="modal">
       <div class="modal-content">
-        <button class="modal-close" onclick="closeCommunityForm()">
+        <button class="modal-close">
           &times;
         </button>
         <h2 class="modal-headline">JOIN THE FC BALLERS <span class="text-blue">COMMUNITY</span></h2>
@@ -616,7 +616,7 @@
         <p class="modal-subtext" style="margin-top: -20px; margin-bottom: 30px">
           No spam. Just the movement.
         </p>
-        <form id="communityForm" onsubmit="handleSubmit(event)">
+        <form onsubmit="handleSubmit(event)">
           <label>Name</label>
           <input type="text" name="name" placeholder="Your name" required />
           <label>Email</label>
