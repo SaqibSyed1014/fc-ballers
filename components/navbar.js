@@ -175,7 +175,7 @@ navElement.innerHTML = `
          </div>
          
          
-         <div id="officialPartnersPopup" class="modal">
+         <div id="officialPartnersPopup" class="modal in-nav">
             <div class="modal-content">
               <div class="modal-form-view">
                   <div class="modal-header">
@@ -230,8 +230,8 @@ navElement.innerHTML = `
             </div>
          </div>
     
-        <div id="officialPartnersSuccessPopup" class="modal">
-          <div class="modal-content">
+        <div id="officialPartnersSuccessPopup" class="modal in-nav">
+          <div class="modal-content is-success">
             <div class="modal-success">
               <button class="modal-close" onclick="closeOfficialPartnersModals()">&times;</button>
               <h2 class="success-headline">YOU'RE IN</h2>

@@ -631,7 +631,7 @@ button:disabled {
 
 
 /* Modal Styles */
-.modal {
+.modal.in-nav {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -645,12 +645,6 @@ button:disabled {
     justify-content: center;
 }
 
-.modal.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -660,7 +654,7 @@ button:disabled {
     }
 }
 
-.modal-content {
+.modal.in-nav .modal-content {
     background: var(--black);
     width: 90%;
     max-width: 500px;
@@ -669,6 +663,12 @@ button:disabled {
     overflow: hidden;
     animation: slideUp 0.3s ease;
     border: 1px solid var(--blue);
+    padding: 0 !important;
+    text-align: left !important;
+}
+
+.modal.in-nav .modal-content.is-success{
+    padding: 24px !important;
 }
 
 @keyframes slideUp {
@@ -682,14 +682,14 @@ button:disabled {
     }
 }
 
-.modal-header {
+.modal.in-nav .modal-header {
     background: var(--black);
     padding: 24px 24px 20px;
     position: relative;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.modal-close, .close-viewer {
+.modal.in-nav .modal-close, .modal.in-nav .close-viewer {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -707,34 +707,35 @@ button:disabled {
     line-height: 1;
 }
 
-.modal-close:hover, .close-viewer:hover {
+.modal.in-nav .modal-close:hover, .modal.in-nav .close-viewer:hover {
     color: var(--blue);
 }
 
-.modal-headline {
+.modal.in-nav .modal-headline {
     font-size: 22px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 8px;
     color: var(--white);
+    padding-right: 0 !important;
 }
 
-.modal-subheadline {
+.modal.in-nav .modal-subheadline {
     font-size: 14px;
     line-height: 1.5;
 }
 
-.modal-body {
+.modal.in-nav .modal-body {
     padding: 28px 24px;
     background: var(--black);
 }
 
-.form-group {
+.modal.in-nav .form-group {
     margin-bottom: 18px;
 }
 
-.form-label {
+.modal.in-nav .form-label {
     display: block;
     font-size: 13px;
     font-weight: 600;
@@ -742,7 +743,7 @@ button:disabled {
     color: var(--white);
 }
 
-.form-input {
+.modal.in-nav .form-input {
     width: 100%;
     padding: 12px 16px;
     background: #0a0a0a;
@@ -751,24 +752,25 @@ button:disabled {
     color: var(--white);
     font-size: 14px;
     transition: border-color 0.2s ease;
+    margin-bottom: 0 !important;
 }
 
-.form-input:focus {
+.modal.in-nav .form-input:focus {
     outline: none;
     border-color: var(--blue);
 }
 
-.form-input::placeholder {
+.modal.in-nav .form-input::placeholder {
     color: rgba(255, 255, 255, 0.4);
 }
 
-.modal-footer {
+.modal.in-nav .modal-footer {
     background: var(--black);
     padding: 20px 24px 24px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.modal-cta {
+.modal.in-nav .modal-cta {
     width: 100%;
     padding: 14px 24px;
     background: var(--blue);
@@ -783,19 +785,54 @@ button:disabled {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.modal-cta:hover {
+.modal.in-nav .modal-cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(10, 185, 255, 0.4);
 }
 
-.modal-cta:active {
+.modal.in-nav .modal-cta:active {
     transform: translateY(0);
 }
 
-.success-footer-text {
+.modal.in-nav .success-footer-text {
     font-size: 11px;
     color: rgba(255, 255, 255, 0.4);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-top: 20px;
+}
+.modal.in-nav .success-headline{
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0 !important;
+    letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+
+    .modal.in-nav .success-headline {
+        font-size: 36px;
+    }
+
+    .modal.in-nav .success-subtext {
+        font-size: 14px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal.in-nav .success-headline {
+        font-size: 32px;
+    }
+
+    .modal.in-nav .success-subtext {
+        font-size: 13px;
+        margin-bottom: 30px;
+    }
+
+    .modal.in-nav .success-footer-text {
+        font-size: 10px;
+    }
 }
