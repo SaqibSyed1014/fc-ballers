@@ -67,6 +67,7 @@ navElement.innerHTML = `
                 <div class="dropdown-content">
                   <a href="Media and hilights.html">Media & Highlights</a>
                   <a href="Press Kit.html">Press Kit</a>
+                  <a href="Planned-kits.html">Planned Kits</a>
                 </div>
               </div>
     
@@ -78,6 +79,7 @@ navElement.innerHTML = `
                   <span class="dropdown-caret"></span>
                 </button>
                 <div class="dropdown-content is-on-right">
+                  <div onclick="openOfficialPartnerModal()">Official Partners</div>
                   <a href="Partners.html">Partnership Options</a>
                   <a href="Become Partners.html">Start a Partnership</a>
                 </div>
@@ -150,6 +152,7 @@ navElement.innerHTML = `
                   <div class="mobile-dropdown-content">
                     <a href="Media and hilights.html">Media & Highlights</a>
                     <a href="Press Kit.html">Press Kit</a>
+                    <a href="Planned-kits.html">Planned Kits</a>
                   </div>
                 </div>
     
@@ -163,11 +166,100 @@ navElement.innerHTML = `
                   <span class="mobile-dropdown-caret"></span>
                 </label>
                 <div class="mobile-dropdown-content">
+                  <div onclick="openOfficialPartnerModal()">Official Partners</div>
                   <a href="Partners.html">Partnership Options</a>
                   <a href="Become Partners.html">Start a Partnership</a>
                 </div>
               </div>
             </div>
          </div>
+         
+         
+         <div id="officialPartnersPopup" class="modal">
+            <div class="modal-content">
+              <div class="modal-form-view">
+                  <div class="modal-header">
+                    <button class="modal-close" onclick="closeOfficialPartnersModals()">&times;</button>
+                    <h3 class="modal-headline">Official <span class="text-blue">Partners</span></h3>
+                    <p class="modal-subheadline">
+                      Brands and venues supporting FC Ballers — on and off the pitch.
+                      Our partners are integrated into the matchday experience, content, and community.
+                    </p>
+                  </div>
+                  <div class="modal-body">
+                    <h4>Partner Announcements Coming Soon</h4>
+                    <p style="margin-bottom: 20px;">
+                        We’re finalizing our first group of official partners.
+                        Stay connected — announcements will be released ahead of the 2026 season.
+                    </p>
+                    
+                    <form id="comingSoonPartnerForm" onsubmit="handleFormSubmit(event, 'officialPartnersSuccessPopup', 'officialPartnersPopup')">
+                      <input type="hidden" name="access_key" value="86998c5b-6588-4b5b-97c8-c2e07907af20">
+                      <input type="checkbox" name="botcheck" id="" style="display: none;">
+        
+                      <div class="form-group">
+                        <label class="form-label" for="name">Name</label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          class="form-input"
+                          placeholder="Enter your name"
+                          required
+                        />
+                      </div>
+                      <div class="form-group" style="margin-bottom: 0;">
+                        <label class="form-label" for="email">Email</label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          class="form-input"
+                          placeholder="Enter your email"
+                          required
+                        />
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" form="comingSoonPartnerForm" class="modal-cta">
+                      Join the list
+                    </button>
+                  </div>
+                </div>
+            </div>
+         </div>
+    
+        <div id="officialPartnersSuccessPopup" class="modal">
+          <div class="modal-content">
+            <div class="modal-success">
+              <button class="modal-close" onclick="closeOfficialPartnersModals()">&times;</button>
+              <h2 class="success-headline">YOU'RE IN</h2>
+              <p class="success-subtext">
+                You’ll be the first to see partner announcements and updates.
+              </p>
+              <button onclick="window.location.href='index.html#'" class="modal-cta">
+                Explore FC Ballers
+              </button>
+              <p class="success-footer-text">FC Ballers — Chicago Football Club</p>
+            </div>
+          </div>
+        </div>
     </header>
 `
+
+function openOfficialPartnerModal() {
+    const modal = document.getElementById("officialPartnersPopup");
+    modal.style.display = 'flex';
+    document.body.style.overflow = "hidden";
+}
+
+function closeOfficialPartnersModals() {
+    const modal = document.getElementById("officialPartnersPopup");
+    const successModal = document.getElementById("officialPartnersSuccessPopup");
+    modal.style.display = 'none';
+    successModal.style.display = 'none';
+
+    document.body.style.overflow = "";
+    document.getElementById("comingSoonPartnerForm").reset();
+}
