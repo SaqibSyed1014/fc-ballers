@@ -836,3 +836,14 @@ button:disabled {
         font-size: 10px;
     }
 }
+
+
+.tabs{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.tabs .btn{
+    width: auto;
+}
