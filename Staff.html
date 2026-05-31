@@ -73,6 +73,17 @@
       }
       @media (max-width: 860px) {
         .two-col {
+          gap: 10px;
+        }
+        .two-col .staff-card{
+          padding: 10px;
+          border-radius: 10px;
+          margin-bottom: 0;
+        }
+        .two-col .staff-card .body-text{
+          font-size: 12px;
+        }
+        .two-col.plain{
           grid-template-columns: 1fr;
         }
       }
@@ -258,7 +269,7 @@
           </div>
           <h2 class="section-title">How we <span>lead</span></h2>
 
-          <div class="two-col">
+          <div class="two-col plain">
             <div>
               <p class="body-text">
                 FC Ballers is built on discipline, creativity, structure, and
