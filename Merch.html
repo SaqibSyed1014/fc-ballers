@@ -76,6 +76,9 @@
         gap: 22px;
         margin-top: 20px;
       }
+      .merch-grid[hidden] {
+        display: none;
+      }
 
       .card {
         background: var(--black);
@@ -84,6 +87,9 @@
         padding: 16px;
         text-align: center;
         transition: box-shadow 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
       }
 
       .card:hover {
@@ -111,15 +117,146 @@
         font-size: 15px;
         margin-bottom: 6px;
       }
+      .item-name .swatch-label {
+        color: var(--grey);
+        font-weight: 400;
+      }
       .item-price {
         font-size: 14px;
         margin-bottom: 16px;
+      }
+
+      /* Tabs */
+      .tabs {
+        display: flex;
+        gap: 10px;
+      }
+      .tabs .btn {
+        width: auto;
+        padding: 10px 22px;
+      }
+
+      /* Product image slider (Streetwear) */
+      .slider {
+        position: relative;
+        width: 100%;
+        height: 240px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #000;
+        margin-bottom: 12px;
+        touch-action: pan-y;
+      }
+      @media (min-width: 900px) {
+        .slider {
+          height: 300px;
+        }
+      }
+      .slider-track {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        pointer-events: none;
+      }
+      .slide.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .slider-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: var(--white);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 12px;
+        opacity: 0.85;
+        transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
+        z-index: 2;
+      }
+      .slider-nav:hover {
+        opacity: 1;
+        background: var(--blue);
+        color: var(--black);
+      }
+      .slider-nav.prev {
+        left: 8px;
+      }
+      .slider-nav.next {
+        right: 8px;
+      }
+      .slider-dots {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        z-index: 2;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.45);
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        padding: 0;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+      .dot.active {
+        background: var(--blue);
+        transform: scale(1.25);
+      }
+
+      /* Color swatches (Streetwear) */
+      .swatches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .swatch {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+        padding: 0;
+        transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .swatch:hover {
+        transform: scale(1.12);
+      }
+      .swatch.active {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 2px rgba(10, 185, 255, 0.3);
       }
 
       .card-actions {
         display: flex;
         gap: 8px;
         flex-direction: column;
+        margin-top: auto;
+        padding-top: 8px;
       }
 
       .btn {
@@ -493,12 +630,30 @@
     <section>
       <div class="max-width">
         <!--    Toggle Tabs    -->
-        <div class="tabs top-spaced">
-          <button class="btn">Activewear</button>
-          <button class="btn btn-secondary" onclick="openModal()">Streetwear</button>
+        <div class="tabs top-spaced" role="tablist" aria-label="Merch categories">
+          <button
+            id="tab-activewear"
+            class="btn"
+            role="tab"
+            aria-selected="true"
+            aria-controls="activewear-panel"
+            onclick="showTab('activewear')"
+          >
+            Activewear
+          </button>
+          <button
+            id="tab-streetwear"
+            class="btn btn-secondary"
+            role="tab"
+            aria-selected="false"
+            aria-controls="streetwear-panel"
+            onclick="showTab('streetwear')"
+          >
+            Streetwear
+          </button>
         </div>
 
-        <div class="merch-grid">
+        <div id="activewear-panel" class="merch-grid" role="tabpanel" aria-labelledby="tab-activewear">
           <div class="card">
             <img
               src="Merch/Tshirt.webp"
@@ -588,6 +743,205 @@
             />
             <div class="item-name">Winter Grind Beanie</div>
             <div class="item-price">$20.00</div>
+            <div class="card-actions">
+              <div class="btn view-image">View Item</div>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="streetwear-panel" class="merch-grid" role="tabpanel" aria-labelledby="tab-streetwear" hidden>
+          <!-- Dark Hours Pullover -->
+          <div class="card streetwear-card" data-product="Dark Hours Pullover">
+            <div class="slider">
+              <div class="slider-track">
+                <img src="products/streetwear/dark-hours-pullover/dark-gray-front.png" class="slide active" alt="Dark Hours Pullover — Dark Gray — Front" loading="lazy" />
+                <img src="products/streetwear/dark-hours-pullover/dark-gray-back.png" class="slide" alt="Dark Hours Pullover — Dark Gray — Back" loading="lazy" />
+              </div>
+              <button type="button" class="slider-nav prev" aria-label="Previous image">&#10094;</button>
+              <button type="button" class="slider-nav next" aria-label="Next image">&#10095;</button>
+              <div class="slider-dots">
+                <button type="button" class="dot active" data-index="0" aria-label="View image 1"></button>
+                <button type="button" class="dot" data-index="1" aria-label="View image 2"></button>
+              </div>
+            </div>
+            <div class="swatches">
+              <button
+                type="button"
+                class="swatch active"
+                style="background: #3f3f42"
+                data-color="Dark Gray"
+                aria-label="Dark Gray"
+                aria-pressed="true"
+                data-images='["products/streetwear/dark-hours-pullover/dark-gray-front.png","products/streetwear/dark-hours-pullover/dark-gray-back.png"]'
+              ></button>
+              <button
+                type="button"
+                class="swatch"
+                style="background: #0d0d0d"
+                data-color="Black"
+                aria-label="Black"
+                aria-pressed="false"
+                data-images='["products/streetwear/dark-hours-pullover/black-front.png","products/streetwear/dark-hours-pullover/black-back.png"]'
+              ></button>
+              <button
+                type="button"
+                class="swatch"
+                style="background: #8c8c8c"
+                data-color="Gray"
+                aria-label="Gray"
+                aria-pressed="false"
+                data-images='["products/streetwear/dark-hours-pullover/gray-front.png","products/streetwear/dark-hours-pullover/gray-back.png"]'
+              ></button>
+            </div>
+            <div class="item-name">Dark Hours Pullover <span class="swatch-label">— Dark Gray</span></div>
+            <div class="item-price">Contact for Pricing</div>
+            <div class="card-actions">
+              <div class="btn view-image">View Item</div>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+
+          <!-- Nightfall Track Pant -->
+          <div class="card streetwear-card" data-product="Nightfall Track Pant">
+            <div class="slider">
+              <div class="slider-track">
+                <img src="products/streetwear/nightfall-track-pant/front.png" class="slide active" alt="Nightfall Track Pant — Front" loading="lazy" />
+                <img src="products/streetwear/nightfall-track-pant/back.png" class="slide" alt="Nightfall Track Pant — Back" loading="lazy" />
+              </div>
+              <button type="button" class="slider-nav prev" aria-label="Previous image">&#10094;</button>
+              <button type="button" class="slider-nav next" aria-label="Next image">&#10095;</button>
+              <div class="slider-dots">
+                <button type="button" class="dot active" data-index="0" aria-label="View image 1"></button>
+                <button type="button" class="dot" data-index="1" aria-label="View image 2"></button>
+              </div>
+            </div>
+            <div class="item-name">Nightfall Track Pant</div>
+            <div class="item-price">Contact for Pricing</div>
+            <div class="card-actions">
+              <div class="btn view-image">View Item</div>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+
+          <!-- Forged Denim Trucker Jacket -->
+          <div class="card streetwear-card" data-product="Forged Denim Trucker Jacket">
+            <div class="slider">
+              <div class="slider-track">
+                <img src="products/streetwear/forged-denim-trucker-jacket/front.png" class="slide active" alt="Forged Denim Trucker Jacket — Front" loading="lazy" />
+                <img src="products/streetwear/forged-denim-trucker-jacket/back.png" class="slide" alt="Forged Denim Trucker Jacket — Back" loading="lazy" />
+              </div>
+              <button type="button" class="slider-nav prev" aria-label="Previous image">&#10094;</button>
+              <button type="button" class="slider-nav next" aria-label="Next image">&#10095;</button>
+              <div class="slider-dots">
+                <button type="button" class="dot active" data-index="0" aria-label="View image 1"></button>
+                <button type="button" class="dot" data-index="1" aria-label="View image 2"></button>
+              </div>
+            </div>
+            <div class="item-name">Forged Denim Trucker Jacket</div>
+            <div class="item-price">Contact for Pricing</div>
+            <div class="card-actions">
+              <div class="btn view-image">View Item</div>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+
+          <!-- Forged Relaxed Denim Pant -->
+          <div class="card streetwear-card" data-product="Forged Relaxed Denim Pant">
+            <div class="slider">
+              <div class="slider-track">
+                <img src="products/streetwear/forged-relaxed-denim-pant/front.png" class="slide active" alt="Forged Relaxed Denim Pant — Front" loading="lazy" />
+                <img src="products/streetwear/forged-relaxed-denim-pant/back.png" class="slide" alt="Forged Relaxed Denim Pant — Back" loading="lazy" />
+              </div>
+              <button type="button" class="slider-nav prev" aria-label="Previous image">&#10094;</button>
+              <button type="button" class="slider-nav next" aria-label="Next image">&#10095;</button>
+              <div class="slider-dots">
+                <button type="button" class="dot active" data-index="0" aria-label="View image 1"></button>
+                <button type="button" class="dot" data-index="1" aria-label="View image 2"></button>
+              </div>
+            </div>
+            <div class="item-name">Forged Relaxed Denim Pant</div>
+            <div class="item-price">Contact for Pricing</div>
+            <div class="card-actions">
+              <div class="btn view-image">View Item</div>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+
+          <!-- No Permission Heavy Tee -->
+          <div class="card streetwear-card" data-product="No Permission Heavy Tee">
+            <div class="slider">
+              <div class="slider-track">
+                <img src="products/streetwear/no-permission-heavy-tee/front-1.png" class="slide active" alt="No Permission Heavy Tee — Front" loading="lazy" />
+                <img src="products/streetwear/no-permission-heavy-tee/front-2.png" class="slide" alt="No Permission Heavy Tee — Front detail" loading="lazy" />
+                <img src="products/streetwear/no-permission-heavy-tee/back.png" class="slide" alt="No Permission Heavy Tee — Back" loading="lazy" />
+              </div>
+              <button type="button" class="slider-nav prev" aria-label="Previous image">&#10094;</button>
+              <button type="button" class="slider-nav next" aria-label="Next image">&#10095;</button>
+              <div class="slider-dots">
+                <button type="button" class="dot active" data-index="0" aria-label="View image 1"></button>
+                <button type="button" class="dot" data-index="1" aria-label="View image 2"></button>
+                <button type="button" class="dot" data-index="2" aria-label="View image 3"></button>
+              </div>
+            </div>
+            <div class="item-name">No Permission Heavy Tee</div>
+            <div class="item-price">Contact for Pricing</div>
+            <div class="card-actions">
+              <div class="btn view-image">View Item</div>
+              <button class="btn btn-secondary" onclick="openModal()">
+                Drop Announcing Soon
+              </button>
+            </div>
+          </div>
+
+          <!-- Unsanctioned Graphic Tee -->
+          <div class="card streetwear-card" data-product="Unsanctioned Graphic Tee">
+            <div class="slider">
+              <div class="slider-track">
+                <img src="products/streetwear/unsanctioned-graphic-tee/white-front-1.png" class="slide active" alt="Unsanctioned Graphic Tee — White — Front" loading="lazy" />
+                <img src="products/streetwear/unsanctioned-graphic-tee/white-front-2.png" class="slide" alt="Unsanctioned Graphic Tee — White — Front detail" loading="lazy" />
+                <img src="products/streetwear/unsanctioned-graphic-tee/white-back.png" class="slide" alt="Unsanctioned Graphic Tee — White — Back" loading="lazy" />
+              </div>
+              <button type="button" class="slider-nav prev" aria-label="Previous image">&#10094;</button>
+              <button type="button" class="slider-nav next" aria-label="Next image">&#10095;</button>
+              <div class="slider-dots">
+                <button type="button" class="dot active" data-index="0" aria-label="View image 1"></button>
+                <button type="button" class="dot" data-index="1" aria-label="View image 2"></button>
+                <button type="button" class="dot" data-index="2" aria-label="View image 3"></button>
+              </div>
+            </div>
+            <div class="swatches">
+              <button
+                type="button"
+                class="swatch active"
+                style="background: #ece3d3"
+                data-color="White"
+                aria-label="White"
+                aria-pressed="true"
+                data-images='["products/streetwear/unsanctioned-graphic-tee/white-front-1.png","products/streetwear/unsanctioned-graphic-tee/white-front-2.png","products/streetwear/unsanctioned-graphic-tee/white-back.png"]'
+              ></button>
+              <button
+                type="button"
+                class="swatch"
+                style="background: #0d0d0d"
+                data-color="Black"
+                aria-label="Black"
+                aria-pressed="false"
+                data-images='["products/streetwear/unsanctioned-graphic-tee/black-front-1.png","products/streetwear/unsanctioned-graphic-tee/black-front-2.png","products/streetwear/unsanctioned-graphic-tee/black-back.png"]'
+              ></button>
+            </div>
+            <div class="item-name">Unsanctioned Graphic Tee <span class="swatch-label">— White</span></div>
+            <div class="item-price">Contact for Pricing</div>
             <div class="card-actions">
               <div class="btn view-image">View Item</div>
               <button class="btn btn-secondary" onclick="openModal()">
@@ -706,7 +1060,7 @@
                     isViewerOpen = true;
 
                     const card = this.closest('.card');
-                    const cardImage = card.querySelector('.item-img');
+                    const cardImage = card.querySelector('.slide.active') || card.querySelector('.item-img');
 
                     if (cardImage) {
                         const imageSrc = cardImage.getAttribute('src');
@@ -792,6 +1146,140 @@
       // };
 
       // Close modal on ESC key
+    </script>
+
+    <script>
+      // Tabs: Activewear / Streetwear
+      function showTab(tab) {
+        const isActivewear = tab === 'activewear';
+        const activewearPanel = document.getElementById('activewear-panel');
+        const streetwearPanel = document.getElementById('streetwear-panel');
+        const activewearTab = document.getElementById('tab-activewear');
+        const streetwearTab = document.getElementById('tab-streetwear');
+
+        activewearPanel.hidden = !isActivewear;
+        streetwearPanel.hidden = isActivewear;
+
+        activewearTab.classList.toggle('btn-secondary', !isActivewear);
+        streetwearTab.classList.toggle('btn-secondary', isActivewear);
+        activewearTab.setAttribute('aria-selected', String(isActivewear));
+        streetwearTab.setAttribute('aria-selected', String(!isActivewear));
+      }
+
+      // Product image sliders (Streetwear)
+      function renderSlider(sliderEl) {
+        const track = sliderEl.querySelector('.slider-track');
+        const dotsWrap = sliderEl.querySelector('.slider-dots');
+        const index = sliderEl._index || 0;
+
+        track.querySelectorAll('.slide').forEach((img, i) => {
+          img.classList.toggle('active', i === index);
+        });
+        dotsWrap.querySelectorAll('.dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+      }
+
+      function setSliderIndex(sliderEl, index) {
+        const total = sliderEl.querySelectorAll('.slide').length;
+        sliderEl._index = ((index % total) + total) % total;
+        renderSlider(sliderEl);
+      }
+
+      function rebuildSlider(sliderEl, images, altBase) {
+        const track = sliderEl.querySelector('.slider-track');
+        const dotsWrap = sliderEl.querySelector('.slider-dots');
+
+        track.innerHTML = images
+          .map(
+            (src, i) =>
+              `<img src="${src}" class="slide${i === 0 ? ' active' : ''}" alt="${altBase} — view ${i + 1}" loading="lazy" />`
+          )
+          .join('');
+
+        dotsWrap.innerHTML = images
+          .map(
+            (_, i) =>
+              `<button type="button" class="dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="View image ${i + 1}"></button>`
+          )
+          .join('');
+
+        setSliderIndex(sliderEl, 0);
+      }
+
+      function initSliders() {
+        document.querySelectorAll('.slider').forEach((sliderEl) => {
+          sliderEl._index = 0;
+
+          sliderEl.querySelector('.prev').addEventListener('click', (e) => {
+            e.stopPropagation();
+            setSliderIndex(sliderEl, (sliderEl._index || 0) - 1);
+          });
+
+          sliderEl.querySelector('.next').addEventListener('click', (e) => {
+            e.stopPropagation();
+            setSliderIndex(sliderEl, (sliderEl._index || 0) + 1);
+          });
+
+          sliderEl.querySelector('.slider-dots').addEventListener('click', (e) => {
+            const dot = e.target.closest('.dot');
+            if (!dot) return;
+            e.stopPropagation();
+            setSliderIndex(sliderEl, parseInt(dot.dataset.index, 10));
+          });
+
+          // Touch swipe support
+          let startX = null;
+          const track = sliderEl.querySelector('.slider-track');
+          track.addEventListener(
+            'touchstart',
+            (e) => {
+              startX = e.touches[0].clientX;
+            },
+            { passive: true }
+          );
+          track.addEventListener('touchend', (e) => {
+            if (startX === null) return;
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) {
+              setSliderIndex(sliderEl, (sliderEl._index || 0) + (dx < 0 ? 1 : -1));
+            }
+            startX = null;
+          });
+        });
+      }
+
+      // Color swatches (Streetwear)
+      function initSwatches() {
+        document.querySelectorAll('.swatches').forEach((wrap) => {
+          wrap.addEventListener('click', (e) => {
+            const btn = e.target.closest('.swatch');
+            if (!btn) return;
+
+            wrap.querySelectorAll('.swatch').forEach((s) => {
+              s.classList.remove('active');
+              s.setAttribute('aria-pressed', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
+
+            const card = wrap.closest('.card');
+            const sliderEl = card.querySelector('.slider');
+            const images = JSON.parse(btn.dataset.images);
+            const productName = card.dataset.product || '';
+
+            rebuildSlider(sliderEl, images, `${productName} — ${btn.dataset.color}`);
+
+            const label = card.querySelector('.swatch-label');
+            if (label) label.textContent = `— ${btn.dataset.color}`;
+          });
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initSliders();
+        initSwatches();
+      });
     </script>
   </body>
 </html>
