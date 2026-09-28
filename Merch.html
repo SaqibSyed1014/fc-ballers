@@ -1241,14 +1241,68 @@
       }
 
       // Product image sliders (Streetwear)
+      //
+      // These product photos are large (multi-MB) source files. Rather than
+      // letting the browser fetch every slide of every card the moment a
+      // slider exists in the DOM, only the currently-visible slide keeps a
+      // real `src`; every other slide holds its URL in `data-src` until it's
+      // actually needed — either because the visitor navigates to it, or
+      // because the browser is idle and can afford to warm the cache for it.
+      function hasIdleCallback() {
+        return typeof window.requestIdleCallback === 'function';
+      }
+
+      function whenIdle(fn) {
+        if (hasIdleCallback()) {
+          window.requestIdleCallback(fn, { timeout: 2000 });
+        } else {
+          setTimeout(fn, 300);
+        }
+      }
+
+      function loadSlideImage(img) {
+        if (!img || img.dataset.loaded === 'true') return;
+        const pending = img.dataset.src;
+        if (pending) {
+          img.src = pending;
+          delete img.dataset.src;
+        }
+        img.dataset.loaded = 'true';
+      }
+
+      // Once the visible slide has actually loaded, use spare idle time to
+      // quietly warm the cache for the rest of that slider's slides so
+      // switching to them later feels instant without competing for
+      // bandwidth against the images the visitor is looking at right now.
+      function prefetchSiblingSlides(sliderEl, activeImg) {
+        sliderEl.querySelectorAll('.slide').forEach((img) => {
+          if (img === activeImg) return;
+          whenIdle(() => loadSlideImage(img));
+        });
+      }
+
+      function wireActiveSlideLoad(sliderEl, activeImg) {
+        if (!activeImg) return;
+        if (activeImg.complete && activeImg.currentSrc) {
+          prefetchSiblingSlides(sliderEl, activeImg);
+          return;
+        }
+        activeImg.addEventListener('load', () => prefetchSiblingSlides(sliderEl, activeImg), { once: true });
+      }
+
       function renderSlider(sliderEl) {
         const track = sliderEl.querySelector('.slider-track');
         const dotsWrap = sliderEl.querySelector('.slider-dots');
         const index = sliderEl._index || 0;
 
-        track.querySelectorAll('.slide').forEach((img, i) => {
+        const slides = track.querySelectorAll('.slide');
+        slides.forEach((img, i) => {
           img.classList.toggle('active', i === index);
         });
+        // Navigating (arrow/dot/swipe) to a slide loads it immediately,
+        // even if it hasn't been idle-prefetched yet.
+        loadSlideImage(slides[index]);
+
         dotsWrap.querySelectorAll('.dot').forEach((dot, i) => {
           dot.classList.toggle('active', i === index);
         });
@@ -1265,10 +1319,13 @@
         const dotsWrap = sliderEl.querySelector('.slider-dots');
 
         track.innerHTML = images
-          .map(
-            (src, i) =>
-              `<img src="${src}" class="slide${i === 0 ? ' active' : ''}" alt="${altBase} — view ${i + 1}" loading="lazy" />`
-          )
+          .map((src, i) => {
+            const isActive = i === 0;
+            // The newly-selected swatch's first photo loads right away;
+            // the rest wait in data-src until needed.
+            const srcAttr = isActive ? `src="${src}"` : `data-src="${src}"`;
+            return `<img ${srcAttr} class="slide${isActive ? ' active' : ''}" alt="${altBase} — view ${i + 1}" loading="lazy" decoding="async" />`;
+          })
           .join('');
 
         dotsWrap.innerHTML = images
@@ -1279,6 +1336,29 @@
           .join('');
 
         setSliderIndex(sliderEl, 0);
+        wireActiveSlideLoad(sliderEl, track.querySelector('.slide.active'));
+      }
+
+      // Convert every non-visible slide already in the initial HTML from a
+      // real `src` to a deferred `data-src`, so only the front-facing photo
+      // of each product card is fetched up front.
+      function lazyPrepareSlides() {
+        document.querySelectorAll('#streetwear-panel .slider').forEach((sliderEl) => {
+          let activeImg = null;
+          sliderEl.querySelectorAll('.slide').forEach((img) => {
+            img.decoding = 'async';
+            if (img.classList.contains('active')) {
+              activeImg = img;
+              return;
+            }
+            const src = img.getAttribute('src');
+            if (src) {
+              img.dataset.src = src;
+              img.removeAttribute('src');
+            }
+          });
+          wireActiveSlideLoad(sliderEl, activeImg);
+        });
       }
 
       function initSliders() {
@@ -1351,6 +1431,7 @@
       }
 
       document.addEventListener('DOMContentLoaded', () => {
+        lazyPrepareSlides();
         initSliders();
         initSwatches();
       });
